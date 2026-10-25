@@ -10,7 +10,8 @@
 <meta property="og:image" content="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Reem+Kufi:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/UthmanTN1B.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 :root{
   --lapis:#3D5BA9; --lapis-d:#26407F; --lapis-l:#E6ECF9;
@@ -18,9 +19,11 @@
   --olive:#5B5C53; --olive-l:#ECEDE6;
   --saffron:#E3A72F;
   --mist:#F3F5FB; --paper:#FFFFFF; --ink:#1E2433; --muted:#5F6676; --line:#DCE1EC;
-  --display:'Reem Kufi', 'IBM Plex Sans Arabic', sans-serif;
+  --display:'Uthman Naskh', 'IBM Plex Sans Arabic', serif;
   --body:'IBM Plex Sans Arabic', Tahoma, sans-serif;
 }
+@font-face{font-family:'Uthman Naskh';src:url('fonts/UthmanTN1.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Uthman Naskh';src:url('fonts/UthmanTN1B.woff2') format('woff2');font-weight:700;font-display:swap}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;font-family:var(--body);color:var(--ink);background:var(--mist);font-size:17px;line-height:1.75}
@@ -28,8 +31,8 @@ a{color:inherit}
 img{max-width:100%;display:block}
 :focus-visible{outline:3px solid var(--saffron);outline-offset:3px;border-radius:6px}
 .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
-h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.35;margin:0}
-h2{font-size:clamp(28px,3.4vw,40px);color:var(--lapis-d)}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.45;margin:0}
+h2{font-size:clamp(32px,3.8vw,46px);color:var(--lapis-d)}
 .lead{color:var(--muted);max-width:62ch;margin:12px 0 0}
 
 /* ---------- navigation ---------- */
@@ -37,7 +40,7 @@ h2{font-size:clamp(28px,3.4vw,40px);color:var(--lapis-d)}
 .nav .wrap{display:flex;align-items:center;gap:22px;height:72px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
 .brand img{height:46px;width:auto}
-.brand b{font-family:var(--display);font-size:20px;color:var(--lapis-d);font-weight:600;display:block;line-height:1.1}
+.brand b{font-family:var(--display);font-size:24px;color:var(--lapis-d);font-weight:700;display:block;line-height:1.1}
 .brand small{color:var(--copper);font-size:13px;font-weight:600}
 .nav ul{display:flex;gap:4px;list-style:none;margin:0 auto 0 0;padding:0}
 .nav ul a{text-decoration:none;padding:8px 12px;border-radius:999px;font-weight:500;color:var(--olive);font-size:15px}
@@ -53,12 +56,13 @@ h2{font-size:clamp(28px,3.4vw,40px);color:var(--lapis-d)}
 /* ---------- hero ---------- */
 .hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#fff 0%,var(--mist) 100%)}
 .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding-top:56px;padding-bottom:72px}
-.hero h1{font-size:clamp(38px,5.2vw,64px);color:var(--ink);font-weight:700}
+.hero h1{font-size:clamp(44px,6vw,76px);color:var(--ink);font-weight:700;line-height:1.35}
 .hero h1 span{display:block;color:var(--lapis)}
 .hero p{font-size:19px;color:var(--muted);max-width:52ch;margin:20px 0 30px}
 .hero .actions{display:flex;gap:12px;flex-wrap:wrap}
-.facts{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:38px;padding-top:22px;border-top:1px solid var(--line);color:var(--muted);font-size:15px}
-.facts b{font-family:var(--display);font-size:26px;color:var(--ink);font-weight:600;margin-inline-end:6px}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:38px}
+.facts div{background:#fff;border:1.5px solid var(--line);border-top:5px solid var(--fc);border-radius:18px;padding:14px 16px 12px;color:var(--muted);font-size:15px;font-weight:600}
+.facts b{display:block;font-family:var(--body);font-size:clamp(34px,3.6vw,48px);line-height:1.1;color:var(--fc);font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-1px}
 
 /* the arch: three bands echoing the logo */
 .arch-stage{display:flex;justify-content:center}
@@ -90,7 +94,7 @@ section{padding:84px 0}
 .prog{position:relative;background:var(--mist);border-radius:140px 140px 18px 18px / 90px 90px 18px 18px;padding:46px 24px 22px;border:1.5px solid transparent;transition:border-color .2s}
 .prog::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:44%;height:6px;border-radius:0 0 6px 6px;background:var(--c)}
 .prog:hover{border-color:var(--c)}
-.prog h3{font-size:24px;color:var(--c);text-align:center}
+.prog h3{font-size:30px;color:var(--c);text-align:center}
 .prog .count{display:block;text-align:center;font-weight:600;color:var(--ink);font-size:15px;margin:2px 0 8px}
 .prog p{color:var(--muted);font-size:15px;text-align:center;margin:0 0 14px;min-height:52px}
 .prog details{border-top:1px dashed var(--line);padding-top:10px}
@@ -109,7 +113,7 @@ section{padding:84px 0}
 .steps li::before{content:counter(s);position:absolute;top:0;right:0;width:50px;height:50px;border-radius:50%;background:#fff;color:var(--lapis-d);font:700 22px var(--display);display:flex;align-items:center;justify-content:center}
 .steps li:not(:last-child)::after{content:"";position:absolute;top:25px;right:58px;left:-6px;height:2px;background:rgba(255,255,255,.35)}
 .steps li:last-child::before{background:var(--saffron);color:var(--ink)}
-.steps b{display:block;font-family:var(--display);font-size:20px;font-weight:600}
+.steps b{display:block;font-family:var(--display);font-size:23px;font-weight:700}
 .steps span{font-size:14.5px;color:#D5DDF2}
 
 /* countries */
@@ -119,10 +123,26 @@ section{padding:84px 0}
 .chip em{font-style:normal;background:var(--copper-l);color:var(--copper);border-radius:999px;padding:0 9px;font-size:13px}
 .note{color:var(--muted);font-size:14px;margin-top:14px}
 
+/* numbers & charts */
+.stats-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:22px}
+.chart-panel{background:#fff;border:1.5px solid var(--line);border-radius:24px;padding:26px;min-width:0}
+.chart-panel h3{font-size:26px;color:var(--lapis-d)}
+.chart-panel .sub{color:var(--muted);font-size:14px;margin:2px 0 12px}
+.cscroll{overflow-x:auto}
+.legend{display:flex;flex-direction:column;gap:8px;font-size:15px}.legend div{display:flex;align-items:center;gap:8px}
+.legend i{width:13px;height:13px;border-radius:3px;flex:0 0 13px}.legend b{margin-inline-start:auto;font-variant-numeric:tabular-nums}
+.donut-wrap{display:flex;gap:20px;align-items:center;flex-wrap:wrap;justify-content:center}
+.bigline{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+.bigline div{flex:1;min-width:150px;background:var(--lapis-l);border-radius:18px;padding:16px 18px;color:var(--lapis-d);font-weight:600}
+.bigline b{display:block;font-size:clamp(36px,4vw,54px);line-height:1.1;font-variant-numeric:tabular-nums}
+.bigline div:nth-child(2){background:var(--copper-l);color:#8A4A20}.bigline div:nth-child(3){background:#E2F2EA;color:#1F6B47}
+.progress{height:14px;background:var(--line);border-radius:99px;overflow:hidden;margin-top:10px}.progress i{display:block;height:100%;background:#1F8A5B;border-radius:99px}
+#ctip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;padding:7px 11px;border-radius:8px;font-size:13px;z-index:70;display:none;line-height:1.6}
+
 /* verify + staff */
 .duo{display:grid;grid-template-columns:1fr 1fr;gap:24px}
 .panel{background:#fff;border-radius:24px;padding:34px;border:1.5px solid var(--line)}
-.panel h3{font-size:26px;color:var(--lapis-d);margin-bottom:6px}
+.panel h3{font-size:30px;color:var(--lapis-d);margin-bottom:6px}
 .panel p{color:var(--muted);margin:0 0 18px}
 .verify-form{display:flex;gap:10px;flex-wrap:wrap}
 .verify-form input{flex:1;min-width:180px;font:500 17px var(--body);padding:12px 16px;border:1.5px solid var(--line);border-radius:999px;direction:ltr;text-align:center;letter-spacing:2px}
@@ -151,7 +171,8 @@ footer nav a:hover{color:var(--saffron)}
   .arch-stage{order:-1}.arch{--w:min(320px,76vw)}
   .steps{grid-template-columns:repeat(3,1fr);row-gap:34px}
   .steps li:nth-child(3)::after{display:none}
-  .duo{grid-template-columns:1fr}
+  .duo,.stats-grid{grid-template-columns:1fr}
+  .facts{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:760px){
   .menu-btn{display:block}
@@ -178,7 +199,7 @@ footer nav a:hover{color:var(--saffron)}
     <ul id="menu">
       <li><a href="#programs">البرامج</a></li>
       <li><a href="#journey">رحلة المتدرب</a></li>
-      <li><a href="#countries">الدول</a></li>
+      <li><a href="#countries">بالأرقام</a></li>
       <li><a href="#verify">التحقق من شهادة</a></li>
       <li><a data-app="admin" href="#">دخول الموظفين</a></li>
     </ul>
@@ -198,10 +219,10 @@ footer nav a:hover{color:var(--saffron)}
           <a class="btn btn-ghost" data-app="admin" href="#">دخول الموظفين</a>
         </div>
         <div class="facts" aria-label="أرقام المنصة">
-          <div><b id="f-progs">12</b>برنامجاً تدريبياً</div>
-          <div><b id="f-courses">137</b>دورة</div>
-          <div><b id="f-countries">12</b>دولة</div>
-          <div><b id="f-trained">4,116</b>متدرباً حتى الآن</div>
+          <div style="--fc:var(--lapis)"><b id="f-progs">12</b>برنامجاً تدريبياً</div>
+          <div style="--fc:var(--copper)"><b id="f-courses">137</b>دورة</div>
+          <div style="--fc:var(--olive)"><b id="f-countries">12</b>دولة</div>
+          <div style="--fc:#1F8A5B"><b id="f-trained">4,116</b>متدرباً حتى الآن</div>
         </div>
       </div>
       <div class="arch-stage" aria-hidden="true">
@@ -250,11 +271,19 @@ footer nav a:hover{color:var(--saffron)}
     <div class="wrap">
       <div class="sec-head">
         <div>
-          <h2>أين ندرّب</h2>
-          <p class="lead">عدد الدورات التدريبية المسجّلة في خطة العام لكل دولة.</p>
+          <h2>التدريب بالأرقام</h2>
+          <p class="lead">خطة العام لبرامج التدريب: المستهدف، والمتحقق حتى الآن، وتوزيع الدورات على الدول وحالات التنفيذ.</p>
         </div>
       </div>
-      <div class="chips" id="chips"></div>
+      <div class="bigline">
+        <div><b id="n-target">7,165</b>متدرباً مستهدفاً</div>
+        <div><b id="n-achieved">4,116</b>متدرباً تم تدريبهم</div>
+        <div><b id="n-pct">57%</b>نسبة الإنجاز<div class="progress"><i id="n-bar" style="width:57%"></i></div></div>
+      </div>
+      <div class="stats-grid">
+        <div class="chart-panel"><h3>الدورات حسب الدولة</h3><p class="sub">عدد الدورات التدريبية المسجّلة لكل دولة</p><div id="c-countries"></div></div>
+        <div class="chart-panel"><h3>حالة التنفيذ</h3><p class="sub">توزيع الدورات حسب حالتها</p><div id="c-status"></div></div>
+      </div>
       <p class="note" id="live-note"></p>
     </div>
   </section>
@@ -295,6 +324,7 @@ footer nav a:hover{color:var(--saffron)}
 </footer>
 
 <button class="to-top" id="to-top" aria-label="العودة إلى أعلى الصفحة">↑</button>
+<div id="ctip"></div>
 
 <script>
 const APP = 'https://script.google.com/macros/s/AKfycbzH6anPU92bntZ0tWMzGeBAaggt6A8plK0pd2HjVJAm5iiakr6gcdRww8b1AJLDiKbW/exec';
@@ -314,7 +344,7 @@ const ABOUT = {
   'وقاية':'التحصين الفكري والوقاية من التطرف'
 };
 const COLORS = ['#3D5BA9','#B5622C','#5B5C53','#2E7D6B','#8A4FA3','#C2891F'];
-const COUNTRIES = [["إثيوبيا", 59], ["بنجلاديش", 53], ["السعودية", 19], ["إندونيسيا", 17], ["اليمن", 15], ["السنغال", 4], ["ميانمار", 3], ["نيجيريا", 2], ["مصر", 1], ["غانا", 1], ["فلسطين", 1], ["لبنان", 1]];
+const FALLBACK = {"programs": 12, "courses": 137, "target": 7165, "achieved": 4116, "countries": [["إثيوبيا", 59], ["بنجلاديش", 53], ["السعودية", 19], ["إندونيسيا", 17], ["اليمن", 15], ["السنغال", 4], ["ميانمار", 3], ["نيجيريا", 2], ["مصر", 1], ["غانا", 1], ["فلسطين", 1], ["لبنان", 1]], "statuses": []};
 const esc = s => String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
 // links into the system
@@ -330,19 +360,43 @@ document.getElementById('prog-grid').innerHTML = Object.entries(CATALOG).map(([n
   </article>`;
 }).join('');
 
-// countries
-function drawCountries(list){
-  document.getElementById('chips').innerHTML = list.map(([c,n]) => `<span class="chip">${esc(c)} <em>${n}</em></span>`).join('');
-  document.getElementById('f-countries').textContent = list.length;
+// numbers & charts
+const ST_COLORS = {'تم التنفيذ':'#1F8A5B','جاري التنفيذ':'#B87410','لم يبدأ تنفيذه':'#3D5BA9','متعثر':'#C0392B','مؤجل':'#7A3FB0','ملغى':'#A0522D'};
+const fmtN = n => Number(n||0).toLocaleString('en');
+function niceMax(v){ const p=Math.pow(10,Math.floor(Math.log10(v))); const m=v/p; return (m<=1?1:m<=2?2:m<=2.5?2.5:m<=5?5:10)*p; }
+function colChart(data){
+  const H=300, pt=28, pb=70, pr=46, pl=8, W=Math.max(560, data.length*58+pr+pl), ih=H-pt-pb, iw=W-pr-pl, gw=iw/Math.max(data.length,1);
+  const max=niceMax(Math.max(1,...data.map(d=>d[1]))), bw=Math.min(36,gw-16), y=v=>pt+ih-(v/max)*ih;
+  let g='';
+  for(let i=0;i<=4;i++){ const v=max*i/4, yy=y(v); g+=`<line x1="${pl}" x2="${W-pr}" y1="${yy}" y2="${yy}" stroke="#E3E8F1"/><text x="${W-pr+8}" y="${yy+4}" font-size="11" fill="#5F6676">${fmtN(v)}</text>`; }
+  data.forEach(([l,v],i)=>{ const cx=W-pr-(i+.5)*gw, x=cx-bw/2, yy=y(v), h=pt+ih-yy, r=Math.min(4,h);
+    g+=`<path d="M${x},${pt+ih} V${yy+r} Q${x},${yy} ${x+r},${yy} H${x+bw-r} Q${x+bw},${yy} ${x+bw},${yy+r} V${pt+ih} Z" fill="#3D5BA9"/>`;
+    g+=`<text x="${cx}" y="${yy-7}" font-size="13" font-weight="700" fill="#1E2433" text-anchor="middle">${fmtN(v)}</text>`;
+    g+=`<rect x="${cx-gw/2}" y="${pt}" width="${gw}" height="${ih}" fill="transparent" data-tip="${esc(l)}: ${fmtN(v)} دورة"/>`;
+    g+=`<text x="${cx}" y="${pt+ih+16}" font-size="13" fill="#1E2433" text-anchor="end" transform="rotate(-35 ${cx} ${pt+ih+16})">${esc(l)}</text>`; });
+  g+=`<line x1="${pl}" x2="${W-pr}" y1="${pt+ih}" y2="${pt+ih}" stroke="#9AA3B5"/>`;
+  return `<div class="cscroll"><svg width="100%" viewBox="0 0 ${W} ${H}" style="min-width:${Math.min(W,520)}px;height:auto;direction:ltr;font-family:'IBM Plex Sans Arabic',sans-serif" role="img" aria-label="الدورات حسب الدولة">${g}</svg></div>`;
 }
-drawCountries(COUNTRIES);
-fetch(APP + '?p=json').then(r => r.json()).then(d => {
-  if (d.countries && d.countries.length) drawCountries(d.countries);
-  if (d.programs) document.getElementById('f-progs').textContent = d.programs;
-  if (d.courses) document.getElementById('f-courses').textContent = d.courses;
-  if (d.achieved) document.getElementById('f-trained').textContent = Number(d.achieved).toLocaleString('en');
-  document.getElementById('live-note').textContent = 'تُحدَّث هذه الأرقام تلقائياً من نظام التدريب.';
-}).catch(() => {});
+function donut(rows, label){
+  const tot=rows.reduce((a,r)=>a+r[1],0)||1, R=78, C=2*Math.PI*R, S=210; let off=0, arcs='';
+  rows.forEach(([l,v,c])=>{ const len=v/tot*C, d=Math.max(0,len-2);
+    arcs+=`<circle cx="${S/2}" cy="${S/2}" r="${R}" fill="none" stroke="${c}" stroke-width="32" stroke-dasharray="${d} ${C-d}" stroke-dashoffset="${-off}" transform="rotate(-90 ${S/2} ${S/2})" data-tip="${esc(l)}: ${fmtN(v)} (${Math.round(v/tot*100)}%)"/>`; off+=len; });
+  return `<div class="donut-wrap"><svg width="${S}" height="${S}" viewBox="0 0 ${S} ${S}" role="img" aria-label="${esc(label)}">${arcs}<text x="${S/2}" y="${S/2+6}" text-anchor="middle" font-size="40" font-weight="700" fill="#1E2433" font-family="IBM Plex Sans Arabic,sans-serif">${fmtN(tot)}</text><text x="${S/2}" y="${S/2+30}" text-anchor="middle" font-size="13" fill="#5F6676" font-family="IBM Plex Sans Arabic,sans-serif">${esc(label)}</text></svg>
+  <div class="legend" style="flex:1;min-width:190px">${rows.map(([l,v,c])=>`<div><i style="background:${c}"></i>${esc(l)}<b>${fmtN(v)} · ${Math.round(v/tot*100)}%</b></div>`).join('')}</div></div>`;
+}
+function drawStats(d){
+  if(d.countries && d.countries.length){ document.getElementById('c-countries').innerHTML = colChart(d.countries); document.getElementById('f-countries').textContent = d.countries.length; }
+  if(d.statuses && d.statuses.length) document.getElementById('c-status').innerHTML = donut(d.statuses.map(([s,n])=>[s,n,ST_COLORS[s]||'#5B5C53']), 'دورة');
+  if(d.programs) document.getElementById('f-progs').textContent = d.programs;
+  if(d.courses) document.getElementById('f-courses').textContent = d.courses;
+  if(d.achieved!=null){ document.getElementById('f-trained').textContent = fmtN(d.achieved); document.getElementById('n-achieved').textContent = fmtN(d.achieved); }
+  if(d.target){ const p=Math.round(d.achieved/d.target*100); document.getElementById('n-target').textContent = fmtN(d.target); document.getElementById('n-pct').textContent = p+'%'; document.getElementById('n-bar').style.width = Math.min(p,100)+'%'; }
+}
+drawStats(FALLBACK);
+fetch(APP + '?p=json').then(r => r.json()).then(d => { drawStats(d); document.getElementById('live-note').textContent = 'تُحدَّث هذه الأرقام تلقائياً من نظام التدريب' + (d.updated ? ' (آخر تحديث ' + d.updated + ')' : '') + '.'; }).catch(() => {});
+document.addEventListener('mousemove', e=>{ const t=document.getElementById('ctip'), el=e.target.closest && e.target.closest('[data-tip]');
+  if(!el){ t.style.display='none'; return; } t.textContent=el.dataset.tip; t.style.display='block';
+  t.style.left=Math.max(8,Math.min(e.clientX+14, innerWidth-t.offsetWidth-8))+'px'; t.style.top=Math.max(8,e.clientY-t.offsetHeight-12)+'px'; });
 
 // verify
 document.getElementById('verify-form').addEventListener('submit', e => {
