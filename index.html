@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>منصة التدريب | جامعة بنيان</title>
+<meta name="description" content="منصة التدريب في جامعة بنيان: برامج تدريبية في عدة دول، تقييم قبلي وبعدي لكل دورة، وشهادات إلكترونية قابلة للتحقق.">
+<link rel="icon" type="image/png" href="favicon.png">
+<meta property="og:title" content="منصة التدريب | جامعة بنيان">
+<meta property="og:image" content="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Reem+Kufi:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --lapis:#3D5BA9; --lapis-d:#26407F; --lapis-l:#E6ECF9;
+  --copper:#B5622C; --copper-l:#F8E9DE;
+  --olive:#5B5C53; --olive-l:#ECEDE6;
+  --saffron:#E3A72F;
+  --mist:#F3F5FB; --paper:#FFFFFF; --ink:#1E2433; --muted:#5F6676; --line:#DCE1EC;
+  --display:'Reem Kufi', 'IBM Plex Sans Arabic', sans-serif;
+  --body:'IBM Plex Sans Arabic', Tahoma, sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--body);color:var(--ink);background:var(--mist);font-size:17px;line-height:1.75}
+a{color:inherit}
+img{max-width:100%;display:block}
+:focus-visible{outline:3px solid var(--saffron);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.35;margin:0}
+h2{font-size:clamp(28px,3.4vw,40px);color:var(--lapis-d)}
+.lead{color:var(--muted);max-width:62ch;margin:12px 0 0}
+
+/* ---------- navigation ---------- */
+.nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:22px;height:72px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{height:46px;width:auto}
+.brand b{font-family:var(--display);font-size:20px;color:var(--lapis-d);font-weight:600;display:block;line-height:1.1}
+.brand small{color:var(--copper);font-size:13px;font-weight:600}
+.nav ul{display:flex;gap:4px;list-style:none;margin:0 auto 0 0;padding:0}
+.nav ul a{text-decoration:none;padding:8px 12px;border-radius:999px;font-weight:500;color:var(--olive);font-size:15px}
+.nav ul a:hover{background:var(--lapis-l);color:var(--lapis-d)}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:999px;padding:12px 22px;font:600 16px var(--body);cursor:pointer;text-decoration:none;transition:transform .15s, box-shadow .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-lapis{background:var(--lapis);color:#fff;box-shadow:0 8px 20px -10px var(--lapis)}
+.btn-copper{background:var(--copper);color:#fff;box-shadow:0 8px 20px -10px var(--copper)}
+.btn-ghost{background:#fff;color:var(--lapis-d);border:1.5px solid var(--line)}
+.btn-sm{padding:9px 16px;font-size:14px}
+.menu-btn{display:none;margin-inline-start:auto;background:none;border:1.5px solid var(--line);border-radius:10px;width:44px;height:40px;font-size:20px;color:var(--lapis-d);cursor:pointer}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#fff 0%,var(--mist) 100%)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding-top:56px;padding-bottom:72px}
+.hero h1{font-size:clamp(38px,5.2vw,64px);color:var(--ink);font-weight:700}
+.hero h1 span{display:block;color:var(--lapis)}
+.hero p{font-size:19px;color:var(--muted);max-width:52ch;margin:20px 0 30px}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap}
+.facts{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:38px;padding-top:22px;border-top:1px solid var(--line);color:var(--muted);font-size:15px}
+.facts b{font-family:var(--display);font-size:26px;color:var(--ink);font-weight:600;margin-inline-end:6px}
+
+/* the arch: three bands echoing the logo */
+.arch-stage{display:flex;justify-content:center}
+.arch{--w:min(420px,82vw);width:var(--w);aspect-ratio:3/3.6;position:relative}
+.arch i{position:absolute;inset:0;border-radius:50% 50% 14px 14px / 34% 34% 14px 14px;display:block}
+.arch i:nth-child(1){background:var(--copper)}
+.arch i:nth-child(2){inset:7% 7% 0 7%;background:var(--olive)}
+.arch i:nth-child(3){inset:14% 14% 0 14%;background:var(--lapis)}
+.arch .door{position:absolute;inset:21% 21% 0 21%;border-radius:50% 50% 10px 10px / 32% 32% 10px 10px;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;text-align:center;box-shadow:inset 0 0 0 3px rgba(255,255,255,.6)}
+.arch .door img{width:58%;margin-bottom:10px}
+.arch .door strong{font-family:var(--display);font-size:clamp(20px,2.4vw,26px);color:var(--lapis-d);font-weight:600;line-height:1.3}
+.arch .door span{font-size:14px;color:var(--muted)}
+.arch .keystone{position:absolute;top:-3%;left:50%;width:9%;aspect-ratio:1;background:var(--lapis);transform:translateX(-50%) rotate(45deg);border-radius:3px}
+@media (prefers-reduced-motion:no-preference){
+  .arch i,.arch .door,.arch .keystone{animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+  .arch i:nth-child(2){animation-delay:.12s}.arch i:nth-child(3){animation-delay:.24s}.arch .door{animation-delay:.36s}.arch .keystone{animation-delay:.5s}
+  @keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+  .arch .keystone{animation-name:drop}
+  @keyframes drop{from{opacity:0;transform:translateX(-50%) translateY(-20px) rotate(45deg)}to{opacity:1;transform:translateX(-50%) rotate(45deg)}}
+}
+
+/* ---------- sections ---------- */
+section{padding:84px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:36px}
+
+/* programs: arched tiles */
+.programs{background:#fff}
+.prog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px}
+.prog{position:relative;background:var(--mist);border-radius:140px 140px 18px 18px / 90px 90px 18px 18px;padding:46px 24px 22px;border:1.5px solid transparent;transition:border-color .2s}
+.prog::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:44%;height:6px;border-radius:0 0 6px 6px;background:var(--c)}
+.prog:hover{border-color:var(--c)}
+.prog h3{font-size:24px;color:var(--c);text-align:center}
+.prog .count{display:block;text-align:center;font-weight:600;color:var(--ink);font-size:15px;margin:2px 0 8px}
+.prog p{color:var(--muted);font-size:15px;text-align:center;margin:0 0 14px;min-height:52px}
+.prog details{border-top:1px dashed var(--line);padding-top:10px}
+.prog summary{cursor:pointer;font-weight:600;color:var(--c);font-size:15px;list-style:none;text-align:center}
+.prog summary::-webkit-details-marker{display:none}
+.prog summary::after{content:" +";}
+.prog details[open] summary::after{content:" −"}
+.prog ol{margin:10px 0 0;padding-inline-start:22px;font-size:14.5px;color:var(--ink);line-height:1.9}
+.prog ol li::marker{color:var(--c);font-weight:700}
+
+/* journey: a real sequence */
+.journey{background:linear-gradient(135deg,var(--lapis-d),var(--lapis));color:#fff}
+.journey h2{color:#fff}.journey .lead{color:#D5DDF2}
+.steps{list-style:none;padding:0;margin:44px 0 0;display:grid;grid-template-columns:repeat(6,1fr);gap:14px;counter-reset:s}
+.steps li{counter-increment:s;position:relative;padding-top:66px}
+.steps li::before{content:counter(s);position:absolute;top:0;right:0;width:50px;height:50px;border-radius:50%;background:#fff;color:var(--lapis-d);font:700 22px var(--display);display:flex;align-items:center;justify-content:center}
+.steps li:not(:last-child)::after{content:"";position:absolute;top:25px;right:58px;left:-6px;height:2px;background:rgba(255,255,255,.35)}
+.steps li:last-child::before{background:var(--saffron);color:var(--ink)}
+.steps b{display:block;font-family:var(--display);font-size:20px;font-weight:600}
+.steps span{font-size:14.5px;color:#D5DDF2}
+
+/* countries */
+.countries{background:var(--mist)}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:9px 16px;font-weight:600;font-size:15px;display:inline-flex;gap:10px;align-items:center}
+.chip em{font-style:normal;background:var(--copper-l);color:var(--copper);border-radius:999px;padding:0 9px;font-size:13px}
+.note{color:var(--muted);font-size:14px;margin-top:14px}
+
+/* verify + staff */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.panel{background:#fff;border-radius:24px;padding:34px;border:1.5px solid var(--line)}
+.panel h3{font-size:26px;color:var(--lapis-d);margin-bottom:6px}
+.panel p{color:var(--muted);margin:0 0 18px}
+.verify-form{display:flex;gap:10px;flex-wrap:wrap}
+.verify-form input{flex:1;min-width:180px;font:500 17px var(--body);padding:12px 16px;border:1.5px solid var(--line);border-radius:999px;direction:ltr;text-align:center;letter-spacing:2px}
+.verify-form input:focus{border-color:var(--lapis);outline:none;box-shadow:0 0 0 4px var(--lapis-l)}
+.panel.staff{background:var(--olive);color:#fff;border:0}
+.panel.staff h3{color:#fff}.panel.staff p{color:#E3E4DC}
+.feat{list-style:none;padding:0;margin:0 0 22px;display:grid;gap:12px}
+.feat li{display:flex;gap:12px;align-items:flex-start}
+.feat li::before{content:"";flex:0 0 12px;height:12px;margin-top:9px;background:var(--saffron);transform:rotate(45deg);border-radius:2px}
+
+footer{background:var(--ink);color:#C9CEDB;padding:46px 0 28px;font-size:15px}
+footer .wrap{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap;align-items:center}
+footer .fbrand{display:flex;align-items:center;gap:14px}
+footer .fbrand img{height:58px;background:#fff;border-radius:14px;padding:6px}
+footer nav{display:flex;gap:18px;flex-wrap:wrap}
+footer nav a{text-decoration:none;color:#fff}
+footer nav a:hover{color:var(--saffron)}
+.copy{width:100%;border-top:1px solid #343B4E;padding-top:18px;margin-top:8px;font-size:13.5px;color:#8E95A8}
+
+.to-top{position:fixed;bottom:22px;left:22px;width:48px;height:48px;border-radius:50%;background:var(--copper);color:#fff;border:0;font-size:22px;cursor:pointer;box-shadow:0 10px 24px -10px var(--copper);opacity:0;pointer-events:none;transition:opacity .2s;z-index:30}
+.to-top.show{opacity:1;pointer-events:auto}
+
+@media (max-width:980px){
+  .hero .wrap{grid-template-columns:1fr;text-align:center}
+  .hero p{margin-inline:auto}.hero .actions,.facts{justify-content:center}
+  .arch-stage{order:-1}.arch{--w:min(320px,76vw)}
+  .steps{grid-template-columns:repeat(3,1fr);row-gap:34px}
+  .steps li:nth-child(3)::after{display:none}
+  .duo{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .menu-btn{display:block}
+  .nav ul{display:none;position:absolute;top:72px;right:0;left:0;background:#fff;flex-direction:column;padding:10px 20px 18px;border-bottom:1px solid var(--line)}
+  .nav ul.open{display:flex}
+  .nav .wrap>.btn{display:none}
+  section{padding:60px 0}
+  .steps{grid-template-columns:1fr;gap:22px}
+  .steps li{padding:0 66px 0 0;min-height:50px}
+  .steps li::after{display:none}
+  .panel{padding:26px}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="منصة التدريب - جامعة بنيان">
+      <img src="mark.png" alt="">
+      <span><b>منصة التدريب</b><small>جامعة بنيان</small></span>
+    </a>
+    <button class="menu-btn" aria-label="القائمة" aria-expanded="false" aria-controls="menu">☰</button>
+    <ul id="menu">
+      <li><a href="#programs">البرامج</a></li>
+      <li><a href="#journey">رحلة المتدرب</a></li>
+      <li><a href="#countries">الدول</a></li>
+      <li><a href="#verify">التحقق من شهادة</a></li>
+      <li><a data-app="admin" href="#">دخول الموظفين</a></li>
+    </ul>
+    <a class="btn btn-lapis btn-sm" data-app="home" href="#">تصفّح الدورات</a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>نبني القدرات<span>ونوثّق الأثر</span></h1>
+        <p>برامج تدريبية لأئمة المساجد والمعلمين والدعاة والشباب في دول عدة. لكل دورة تقييم قبلي وبعدي، وفي ختام البرنامج شهادة إلكترونية يمكن التحقق منها.</p>
+        <div class="actions">
+          <a class="btn btn-lapis" data-app="home" href="#">تصفّح الدورات وسجّل</a>
+          <a class="btn btn-copper" href="#verify">تحقق من شهادة</a>
+          <a class="btn btn-ghost" data-app="admin" href="#">دخول الموظفين</a>
+        </div>
+        <div class="facts" aria-label="أرقام المنصة">
+          <div><b id="f-progs">12</b>برنامجاً تدريبياً</div>
+          <div><b id="f-courses">137</b>دورة</div>
+          <div><b id="f-countries">16</b>دولة</div>
+          <div><b id="f-trained">4,142</b>متدرباً حتى الآن</div>
+        </div>
+      </div>
+      <div class="arch-stage" aria-hidden="true">
+        <div class="arch">
+          <i></i><i></i><i></i>
+          <div class="door">
+            <img src="logo.png" alt="">
+            <strong>من الباب إلى الأثر</strong>
+            <span>تسجيل، تقييم، شهادة</span>
+          </div>
+          <div class="keystone"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="programs" id="programs">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>البرامج التدريبية</h2>
+          <p class="lead">اثنا عشر برنامجاً، يضم كل برنامج مجموعة دورات متتابعة. افتح أي برنامج لترى دوراته.</p>
+        </div>
+        <a class="btn btn-ghost" data-app="home" href="#">الدورات المتاحة الآن حسب الدولة</a>
+      </div>
+      <div class="prog-grid" id="prog-grid"></div>
+    </div>
+  </section>
+
+  <section class="journey" id="journey">
+    <div class="wrap">
+      <h2>رحلة المتدرب</h2>
+      <p class="lead">كل خطوة برابط خاص بالبرنامج الذي سجّلت فيه، وتظهر لك نتيجتك ومقدار تحسّنك بعد كل دورة.</p>
+      <ol class="steps">
+        <li><b>التسجيل</b><span>اسمك الثلاثي كما تريده في الشهادة، وبريدك.</span></li>
+        <li><b>التقييم القبلي</b><span>قبل كل دورة، لقياس نقطة البداية.</span></li>
+        <li><b>حضور الدورة</b><span>في موقع التنفيذ أو عن بُعد.</span></li>
+        <li><b>التقييم البعدي</b><span>بعد كل دورة، مع مقارنة بالقبلي.</span></li>
+        <li><b>تقييم البرنامج</b><span>رأيك في المحتوى والمدربين والتنظيم.</span></li>
+        <li><b>الشهادة</b><span>PDF أو صورة، برقم ورمز تحقق.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="countries" id="countries">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>أين ندرّب</h2>
+          <p class="lead">عدد الدورات التدريبية المسجّلة في خطة العام لكل دولة.</p>
+        </div>
+      </div>
+      <div class="chips" id="chips"></div>
+      <p class="note" id="live-note"></p>
+    </div>
+  </section>
+
+  <section id="verify">
+    <div class="wrap duo">
+      <div class="panel">
+        <h3>التحقق من شهادة</h3>
+        <p>اكتب رمز التحقق المطبوع أسفل الشهادة لتتأكد من صحتها واسم صاحبها.</p>
+        <form class="verify-form" id="verify-form">
+          <label for="code" class="sr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">رمز التحقق</label>
+          <input id="code" name="code" placeholder="8F3A21C9" autocomplete="off" maxlength="12" required>
+          <button class="btn btn-copper" type="submit">تحقق</button>
+        </form>
+      </div>
+      <div class="panel staff">
+        <h3>لفريق العمل</h3>
+        <p>كل موظف يدخل برمزه الخاص، ويرى ما تسمح به صلاحيات مسمّاه.</p>
+        <ul class="feat">
+          <li>متابعة الدورات وحالاتها حسب الدولة والبرنامج</li>
+          <li>رفع شواهد التنفيذ: صور وفيديو لكل جلسة</li>
+          <li>تقارير المتدربين وإصدار الشهادات</li>
+        </ul>
+        <a class="btn btn-ghost" data-app="admin" href="#">دخول الموظفين</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fbrand"><img src="logo.png" alt="شعار جامعة بنيان"><div><b style="color:#fff;font-family:var(--display);font-size:20px">منصة التدريب</b><br>جامعة بنيان</div></div>
+    <nav aria-label="روابط سريعة">
+      <a href="#programs">البرامج</a><a href="#journey">رحلة المتدرب</a><a href="#verify">التحقق من شهادة</a><a data-app="home" href="#">تصفّح الدورات</a><a data-app="admin" href="#">دخول الموظفين</a>
+    </nav>
+    <div class="copy">© <span id="yr">2026</span> جامعة بنيان. جميع الحقوق محفوظة.</div>
+  </div>
+</footer>
+
+<button class="to-top" id="to-top" aria-label="العودة إلى أعلى الصفحة">↑</button>
+
+<script>
+const APP = 'https://script.google.com/macros/s/AKfycbzH6anPU92bntZ0tWMzGeBAaggt6A8plK0pd2HjVJAm5iiakr6gcdRww8b1AJLDiKbW/exec';
+const CATALOG = {"برنامج النخبة": ["التخطيط الاستراتيجي الشخصي", "مهارات كتابة التقارير", "إدارة فرق العمل والتطوعية", "العمل المؤسسي", "قيم الأداء في العمل التطوعي", "إدارة المخاطر في مؤسسات القطاع الثالث", "القيادة الموقفية", "أسس التسويق الاحترافي", "المالية لغير الماليين", "التخطيط التشغيلي", "قياس مؤشرات الأداء", "إدارة المشاريع التنموية", "مهارات تنمية الموارد المالية"], "برنامج بصيرة": ["أدوار ومهام إمام المسجد", "أدلة إدارة المسجد الفاعل", "مهارات الإلقاء والخطابة", "مهارات تكوين فرق العمل التطوعية", "الأساليب النبوية في معالجة الأخطاء", "مهارات الاتصال الفعال مع جماعة المسجد", "التحصين ضد التطرف والأفكار الضالة", "مفهوم الإصلاح الأسري وآدابه وضوابطه الشرعية", "مهارات الحوار الفعال (الحوار النبوي أنموذجا)", "مهارات حل المشكلات واتخاذ القرارات", "فنون التعامل مع جماعة المسجد"], "برنامج المربي": ["التربية الإسلامية في ضوء الكتاب والسنة", "كفايات المعلم الناجح", "تعزيز الكفايات الإدارية والفنية لمدير المدرسة", "استراتيجيات التدريس الحديثة", "استراتيجيات التقويم التربوي وأدواته", "اكتشاف المواهب وتنميتها", "إدارة الاجتماعات", "تحفيز العاملين", "تجارب ناجحة للمؤسسات التعليمية", "مهارات التخطيط والتنظيم الإداري", "بناء القيم في المجتمع المدرسية", "مهارات في القيادة المدرسية", "مهارات الاشراف التربوي", "تحسين الأداء المدرسي", "أساليب الاشراف التربوي", "إدارة الجودة"], "برنامج الرواد": ["التعريف بالإسلام المفهوم والأساليب", "مهارات المعرفين بالإسلام وصفاتهم", "منهجية طرح موضوعات التعريف بالإسلام", "مهارات الدعوة الميدانية", "مهارات استخدام التقنية في الدعوة إلى الله", "مهارات التعامل مع المسلم الجديد", "الاتصال الفعال", "مهارات الحوار", "مهارات الاقناع والتأثير", "مهارات اعداد التقارير", "منهجيبة التعريف بالإسلام من خلال التعريف بالشخصيات والقضايا والمعالم"], "برنامج الأترجة": ["اضاءات في علوم القرآن الكريم", "خصائص النمو لدى المتعلمين", "التخطيط لدروس القرآن الكريم", "مهارات إدارة حلقة القرآن الكريم", "استراتيجيات تدريس القرآن الكريم", "القياس والتقويم في دروس القرآن الكريم", "تطبيقات في علم التجويد", "كفايات المعلم الناجح", "مهارات عرض الدرس القرآني", "مهارات في التدبر والمدارسة", "مهارات حل المشكلات واتخاذ القرار"], "برنامج تمهير": ["مهارات التعامل مع الآخرين", "التهيئة لسوق العمل", "كيف تسوق لذاتك", "هل أنت موهوب؟", "مهارات التفكير", "مهارات حل المشكلات واتخاذ القرار", "مهارات تعديل سلوك", "مهارات الوعي المالي", "بناء وتكوين الشخصية", "تقدير الذات", "مهارات اللقاء والخطابة", "فن التعامل مع الآخرين"], "برنامج حكيم": ["مهارات تعديل السلوك الشخصي", "مهارات تعديل سلوك الابناء", "مفهوم الإصلاح الأسري وآدابه", "أسرار السعادة الزوجية", "التعامل مع المشكلات الزوجية", "الخصائص العمرية لمرحلة المراهقة", "فقه الأسرة", "مجلس الصلح مهارات الجلسة الحضورية", "مهارات التوجيه الالكتروني والهاتفي", "الضوابط الشرعية في عملية الإصلاح الأسري", "مفاهيم الحياة الزوجية", "الصحة النفسية", "تطبيقات عملية"], "برنامج رعاية": ["الفقد آثاره وعلاجه", "التخطيط الشخصي (تعويد اليتيم على تحمل المسؤولية)", "الخصاص العمرية لمرحلة الطفولة", "مهارات غرس القيم للأيتام", "مهارات تعديل سلوك الأبناء", "حقوق وواجبات اليتيم في الإسلام", "أخلاقيات التعامل مع اليتيم", "مفهوم اليتم ومراعاة اليتيم", "بناء وتكوين شخصية اليتيم", "مهارات حماية الطفل اليتيم من الاساءة الأخلاقية", "مهارات إدارة وحل المشكلات", "مهارات التعامل مع ضغوط العمل"], "برنامج سفير": ["التخطيط الاستراتيجي الشخصي", "إضاءات عصرية في الثوابت الإسلامية", "مهارات حل المشكلات واتخاذ القرار", "العمل المؤسسي", "مدخل في بناء المشاريع", "تطبيقات فقه الأولويات", "مهارات التعامل مع المسلم الجديد", "تطبيقات فقه الأقليات", "الأساليب النبوية في معالجة الأخطاء", "مهارات استخدام التقنية في الدعوة", "مفهوم التعريف بالإسلام ومنهجيته", "التحصين ضد الانحراف الفكري"], "برنامج ياهلا": ["مهارات الحوار والإقناع", "مهارات الإتصال الفعال", "إدارة فرق العمل التطوعية", "التخطيط الاسترتيجي الشخصي", "مهارات حل المشكلات واتخاذ القرار", "مهارات كتابة التقارير الإدارية", "مهارة تحسين الصورة الذهنية عن المملكة", "مهارات التسويق الاحترافي", "إدارة العلاقات العامّة", "مهارات التخطيط والتنظيم الإداري", "التعامل مع الحالات الطارئة", "فن الذوق والاتيكيت", "أنماط الشخصية"], "برنامج ميراث": ["كفايات المعلم الناجح", "مهارات إدارة بيئات التعلم", "استراتيجيات التقويم التربوي وأدواته", "استراتيجيات التدريس الحديثة", "التخطيط الدراسي ومهارات عرض الدرس", "العلم فضله وتعليمه وتوريثه"], "برنامج وقاية": ["مهارات الإتصال الفعال", "مهارات التحصين ضد الانحراف الفكري والتطرف", "مؤشرات الانحراف الفكري واللتطرف والإرهاب", "مهارات الاقناع والتأثير", "مهارات الحوار الفعال", "تحسين الصورة الذهنية عن المملكة", "التحصين ضد الفكر الامامي المتطرف"]};
+const ABOUT = {
+  'النخبة':'القيادة والعمل المؤسسي للعاملين في القطاع غير الربحي',
+  'بصيرة':'تأهيل أئمة المساجد في الإدارة والخطابة والتعامل مع الجماعة',
+  'المربي':'كفايات المعلمين وقادة المدارس والإشراف التربوي',
+  'الرواد':'التعريف بالإسلام ومهارات الدعوة الميدانية',
+  'الأترجة':'إعداد معلمي القرآن الكريم وإدارة الحلقات',
+  'تمهير':'مهارات الشباب الشخصية والتهيئة لسوق العمل',
+  'حكيم':'الإصلاح الأسري ومهارات الاستشارة',
+  'رعاية':'رعاية الأيتام وتربيتهم وحمايتهم',
+  'سفير':'إعداد الدعاة في المجتمعات المسلمة والأقليات',
+  'ياهلا':'الاتصال والعلاقات العامة وتحسين الصورة الذهنية',
+  'ميراث':'تأهيل معلمي العلم الشرعي',
+  'وقاية':'التحصين الفكري والوقاية من التطرف'
+};
+const COLORS = ['#3D5BA9','#B5622C','#5B5C53','#2E7D6B','#8A4FA3','#C2891F'];
+const COUNTRIES = [];
+const esc = s => String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+// links into the system
+document.querySelectorAll('[data-app]').forEach(a => { a.href = APP + (a.dataset.app === 'admin' ? '?p=admin' : ''); });
+
+// programs
+document.getElementById('prog-grid').innerHTML = Object.entries(CATALOG).map(([name, list], i) => {
+  const short = name.replace('برنامج ','');
+  return `<article class="prog" style="--c:${COLORS[i % COLORS.length]}">
+    <h3>${esc(short)}</h3><span class="count">${list.length} دورة</span>
+    <p>${esc(ABOUT[short]||'')}</p>
+    <details><summary>دورات البرنامج</summary><ol>${list.map(c=>`<li>${esc(c)}</li>`).join('')}</ol></details>
+  </article>`;
+}).join('');
+
+// countries
+function drawCountries(list){
+  document.getElementById('chips').innerHTML = list.map(([c,n]) => `<span class="chip">${esc(c)} <em>${n}</em></span>`).join('');
+  document.getElementById('f-countries').textContent = list.length;
+}
+drawCountries(COUNTRIES);
+fetch(APP + '?p=json').then(r => r.json()).then(d => {
+  if (d.countries && d.countries.length) drawCountries(d.countries);
+  if (d.programs) document.getElementById('f-progs').textContent = d.programs;
+  if (d.courses) document.getElementById('f-courses').textContent = d.courses;
+  if (d.achieved) document.getElementById('f-trained').textContent = Number(d.achieved).toLocaleString('en');
+  document.getElementById('live-note').textContent = 'تُحدَّث هذه الأرقام تلقائياً من نظام التدريب.';
+}).catch(() => {});
+
+// verify
+document.getElementById('verify-form').addEventListener('submit', e => {
+  e.preventDefault();
+  const code = document.getElementById('code').value.trim();
+  if (code) location.href = APP + '?p=verify&code=' + encodeURIComponent(code);
+});
+
+// mobile menu
+const mb = document.querySelector('.menu-btn'), menu = document.getElementById('menu');
+mb.addEventListener('click', () => { const o = menu.classList.toggle('open'); mb.setAttribute('aria-expanded', o); });
+menu.addEventListener('click', e => { if (e.target.closest('a')) { menu.classList.remove('open'); mb.setAttribute('aria-expanded', false); } });
+
+// back to top
+const tt = document.getElementById('to-top');
+addEventListener('scroll', () => tt.classList.toggle('show', scrollY > 600), {passive:true});
+tt.addEventListener('click', () => scrollTo({top:0, behavior:'smooth'}));
+document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
