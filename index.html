@@ -133,9 +133,9 @@ section{padding:84px 0}
 .legend i{width:13px;height:13px;border-radius:3px;flex:0 0 13px}.legend b{margin-inline-start:auto;font-variant-numeric:tabular-nums}
 .donut-wrap{display:flex;gap:20px;align-items:center;flex-wrap:wrap;justify-content:center}
 .bigline{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:22px}
-.bigline div{flex:1;min-width:150px;background:var(--lapis-l);border-radius:18px;padding:16px 18px;color:var(--lapis-d);font-weight:600}
+.bigline>div{flex:1;min-width:150px;background:var(--lapis-l);border-radius:18px;padding:16px 18px;color:var(--lapis-d);font-weight:600}
 .bigline b{display:block;font-size:clamp(36px,4vw,54px);line-height:1.1;font-variant-numeric:tabular-nums}
-.bigline div:nth-child(2){background:var(--copper-l);color:#8A4A20}.bigline div:nth-child(3){background:#E2F2EA;color:#1F6B47}
+.bigline>div:nth-child(2){background:var(--copper-l);color:#8A4A20}.bigline>div:nth-child(3){background:#E2F2EA;color:#1F6B47}
 .progress{height:14px;background:var(--line);border-radius:99px;overflow:hidden;margin-top:10px}.progress i{display:block;height:100%;background:#1F8A5B;border-radius:99px}
 #ctip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;padding:7px 11px;border-radius:8px;font-size:13px;z-index:70;display:none;line-height:1.6}
 
@@ -344,7 +344,7 @@ const ABOUT = {
   'وقاية':'التحصين الفكري والوقاية من التطرف'
 };
 const COLORS = ['#3D5BA9','#B5622C','#5B5C53','#2E7D6B','#8A4FA3','#C2891F'];
-const FALLBACK = {"programs": 12, "courses": 137, "target": 7165, "achieved": 4116, "countries": [["إثيوبيا", 59], ["بنجلاديش", 53], ["السعودية", 19], ["إندونيسيا", 17], ["اليمن", 15], ["السنغال", 4], ["ميانمار", 3], ["نيجيريا", 2], ["مصر", 1], ["غانا", 1], ["فلسطين", 1], ["لبنان", 1]], "statuses": []};
+const FALLBACK = {"programs": 12, "courses": 137, "target": 7165, "achieved": 4116, "countries": [["إثيوبيا", 59], ["بنجلاديش", 53], ["السعودية", 19], ["إندونيسيا", 17], ["اليمن", 15], ["السنغال", 4], ["ميانمار", 3], ["نيجيريا", 2], ["مصر", 1], ["غانا", 1], ["فلسطين", 1], ["لبنان", 1]], "statuses": [["تم التنفيذ", 105], ["جاري التنفيذ", 4], ["لم يبدأ تنفيذه", 67]]};
 const esc = s => String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
 // links into the system
