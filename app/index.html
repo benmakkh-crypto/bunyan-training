@@ -2,6 +2,7 @@
 <html dir="rtl" lang="ar">
 <head>
 <title>بوابة التدريب — بنيان العالمية</title>
+<link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#26407F"><link rel="apple-touch-icon" href="icon-180.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="بوابة التدريب"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <base target="_top">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -336,6 +337,19 @@ html:not([lang=ar]) h2,html:not([lang=ar]) h3,html:not([lang=ar]) .top b,html:no
 .jr li{text-align:center;background:#F6F8FC;border-radius:18px;padding:16px 10px}.jr b{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#26407F,#3D5BA9);color:#fff;font-size:18px;margin-bottom:8px}.jr span{display:block;font-weight:600;font-size:14px}
 @media(max-width:980px){.pt-hero{grid-template-columns:1fr;padding:24px}.pt-globe{order:-1}.pt-txt h1{font-size:46px}.pt-countries{grid-template-columns:1fr}.jr{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.pt-kpis{grid-template-columns:1fr 1fr}.pt-txt h1{font-size:40px}}
+.pt-side{display:flex;flex-direction:column;gap:14px;min-width:0}
+.pt-ch{background:#fff;border:1px solid var(--bd);border-radius:22px;padding:16px 18px;min-width:0}.pt-chh{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px}.pt-chh h3{margin:0;font-size:22px}
+.pt-charts{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;margin-bottom:24px}.pt-charts .pt-ch.wide{grid-column:span 1}.pt-charts>.pt-ch:last-child{grid-column:1/-1}
+.pt-ch .donut-wrap{justify-content:center}.pt-ch .cscroll svg{max-height:330px}
+@media(max-width:980px){.pt-charts{grid-template-columns:1fr}}
+.pt-app{display:grid;grid-template-columns:1.4fr 1fr;gap:20px;align-items:center;border-radius:26px;padding:26px 30px;margin-bottom:22px;color:#fff;background:radial-gradient(500px 220px at 100% 0%,rgba(227,167,47,.35),transparent 60%),linear-gradient(120deg,#26407F,#3D5BA9)}
+.pt-app h2{color:#fff;font-size:34px;margin:6px 0}.pt-app p{color:#DCE4F6;line-height:1.9;margin:0 0 14px}.pt-app .eyebrow{background:rgba(255,255,255,.14);color:#F4D58D}
+.app-badges{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}.app-badges span{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:99px;padding:4px 12px;font-size:13px}
+.app-phone{justify-self:center;width:170px;height:320px;border-radius:34px;background:#0d1c47;border:8px solid #10183a;box-shadow:0 30px 60px -30px #000,inset 0 0 0 2px rgba(255,255,255,.08);display:grid;place-items:center}
+.ap-screen{text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px}.ap-screen img{width:74px;height:74px;border-radius:20px;box-shadow:0 10px 20px -8px #000}.ap-screen b{font-family:'Uthman Naskh',serif;font-size:20px}.ap-screen span{font-size:12px;color:#F4D58D}
+.app-m{text-align:center}.app-m img{width:84px;border-radius:22px;box-shadow:0 12px 24px -12px rgba(0,0,0,.4)}.app-steps{text-align:start;line-height:2.2;font-size:16px;max-width:360px;margin:10px auto}
+#app_qr{background:#fff;border:1px solid var(--bd);border-radius:14px;margin:6px auto;display:block}
+@media(max-width:760px){.pt-app{grid-template-columns:1fr}.app-phone{display:none}}
 </style>
 </head>
 <body>
@@ -1087,6 +1101,24 @@ function certsPage(){
   CERT_D[sample.no] = sample; mountCerts(app);
 }
 
+/* ============ تطبيق الجوال (PWA) ============ */
+let DEFER_INSTALL = null;
+const IS_APP = () => (window.matchMedia && matchMedia('(display-mode: standalone)').matches) || navigator.standalone === true;
+const CAN_APP = () => /github\.io$/.test(location.hostname) && !IS_APP();
+window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); DEFER_INSTALL = e; });
+window.addEventListener('appinstalled', () => { DEFER_INSTALL = null; toast(t('app_done','تم تثبيت التطبيق على جهازك')); });
+function installApp(){
+  if(DEFER_INSTALL){ DEFER_INSTALL.prompt(); DEFER_INSTALL.userChoice.finally(() => { DEFER_INSTALL = null; }); return; }
+  const ios = /iphone|ipad|ipod/i.test(navigator.userAgent), and = /android/i.test(navigator.userAgent);
+  openM(`<div class="app-m"><img src="${ASSET}app/icon-192.png" alt=""><h2>📲 ${t('app_t','تطبيق بوابة التدريب')}</h2>
+    ${ios ? `<ol class="app-steps"><li>${t('app_ios1','افتح الرابط في متصفح Safari')}</li><li>${t('app_ios2','اضغط زر المشاركة')} <b>⬆️</b></li><li>${t('app_ios3','اختر «إضافة إلى الشاشة الرئيسية» ثم «إضافة»')}</li></ol>`
+      : and ? `<ol class="app-steps"><li>${t('app_and1','افتح الرابط في متصفح Chrome')}</li><li>${t('app_and2','اضغط القائمة')} <b>⋮</b></li><li>${t('app_and3','اختر «تثبيت التطبيق» أو «إضافة إلى الشاشة الرئيسية»')}</li></ol>`
+      : `<p>${t('app_pc','امسح الرمز بكاميرا جوالك لفتح البوابة، ثم ثبّتها من قائمة المتصفح.')}</p><canvas id="app_qr" width="220" height="220"></canvas>`}
+    <p class="mu">${t('app_note','يظهر التطبيق بأيقونة بنيان على شاشة جوالك، ويفتح بملء الشاشة.')}</p></div>`);
+  const c = $('#app_qr'); if(c) loadLib('lib/qrcode.js').then(() => qrPaint(c.getContext('2d'), ASSET + 'app/', 110, 110, 220, '#1E3570')).catch(()=>{});
+}
+document.addEventListener('click', e => { if(e.target.closest('[data-install]')){ e.preventDefault(); installApp(); } });
+
 /* ============ البوابة العالمية: كرة أرضية ثلاثية الأبعاد ============ */
 const ISO3 = {ET:'ETH',BD:'BGD',SA:'SAU',ID:'IDN',YE:'YEM',SN:'SEN',MM:'MMR',NG:'NGA',EG:'EGY',GH:'GHA',PS:'PSE',LB:'LBN',IN:'IND',PK:'PAK',UG:'UGA',KE:'KEN',TZ:'TZA',SO:'SOM',SD:'SDN',TD:'TCD',ML:'MLI',NE:'NER',JO:'JOR',TR:'TUR',MY:'MYS',PH:'PHL',TH:'THA',LK:'LKA',NP:'NPL',AF:'AFG',XK:'CS-KM',BA:'BIH',AL:'ALB',MA:'MAR',DZ:'DZA',TN:'TUN',MR:'MRT',DJ:'DJI',ER:'ERI',CM:'CMR',BJ:'BEN',TG:'TGO',GN:'GIN',SL:'SLE',LR:'LBR',MZ:'MOZ',MW:'MWI',MG:'MDG',KM:'COM'};
 const EXTRA_C = {COM:[43.33,-11.7]};
@@ -1161,13 +1193,19 @@ async function portalPage(){
       <div class="pt-txt"><span class="eyebrow">🌍 ${t('uni2','بنيان العالمية')}</span><h1>${t('brand2','بوابة التدريب')}</h1>
         <p class="lead">${t('pt_lead','برامج تدريبية للأئمة والمعلمين والدعاة والشباب في دول العالم. لكل دورة دبوس على الخريطة، ولكل متدرب حساب وشهادة موحدة يتحقق منها أي أحد.')}</p>
         <div class="pt-cta">${logged ? `<a class="btn gold big" href="${link(store('metok')?'me':'admin','',store('metok')?'up':'')}">👤 ${t('pt_my','حسابي')}</a><a class="btn ghost-w big" href="${link('ads')}">📣 ${t('nav_ads','الإعلانات')}</a>`
-          : `<a class="btn gold big" href="${link('login')}">🔑 ${t('login_title','الدخول')}</a><a class="btn ghost-w big" href="${link('signup')}">${t('nav_signup','تسجيل جديد')}</a>`}</div>
+          : `<a class="btn gold big" href="${link('login')}">🔑 ${t('login_title','الدخول')}</a><a class="btn ghost-w big" href="${link('signup')}">${t('nav_signup','تسجيل جديد')}</a>`}${CAN_APP() ? `<button class="btn ghost-w big" data-install>📲 ${t('app_btn','حمّل التطبيق')}</button>` : ''}</div>
         <div class="pt-kpis" id="pt_k"><div><b>—</b><span>${t('p_f_progs','برنامجاً تدريبياً')}</span></div><div><b>—</b><span>${t('st_countries','دولة')}</span></div><div><b>—</b><span>${t('pt_runs','دورة منفذة ومجدولة')}</span></div><div><b>—</b><span>${t('p_f_trained','متدرباً حتى الآن')}</span></div></div>
         <p class="pt-hint">🖱️ ${t('pt_hint','اسحب الكرة لتدويرها، واضغط على الدبوس لعرض دورات الدولة.')}</p></div>
       <div class="pt-globe"><div class="globe" id="globe"><div class="loader"></div></div><div class="pt-legend"><span><i class="lg-pin"></i>${t('pt_lg1','دولة فيها دورات')}</span><span><i class="lg-dot"></i>${t('pt_lg2','دورة')}</span><span><i class="lg-dot open"></i>${t('pt_lg3','مفتوحة للتسجيل')}</span></div></div>
     </section>
-    <section class="pt-countries"><div class="pt-panel" id="pt_panel"></div><div class="pt-chips" id="pt_chips"></div></section>
+    <section class="pt-countries"><div class="pt-panel" id="pt_panel"></div><div class="pt-side"><div class="pt-chips" id="pt_chips"></div>
+      <div class="pt-ch"><div class="pt-chh"><h3>📊 ${t('ch_status','حسب الحالة')}</h3></div><div id="ch_st"></div></div></div></section>
+    <section class="pt-charts"><div class="pt-ch wide"><div class="pt-chh"><h3>🌍 ${t('ch_country','حسب الدولة')}</h3><span class="mu">${t('ch_country_p','عدد الدورات في كل دولة')}</span></div><div id="ch_c"></div></div>
+      <div class="pt-ch"><div class="pt-chh"><h3>📅 ${t('ch_year','حسب السنة')}</h3></div><div id="ch_y"></div></div>
+      <div class="pt-ch wide"><div class="pt-chh"><h3>📚 ${t('ch_prog','حسب البرنامج')}</h3><span class="mu">${t('ch_prog_p','عدد الدورات المنفذة والمجدولة لكل برنامج')}</span></div><div id="ch_p"></div></div></section>
     <section class="pt-progs"><div class="pt-sh"><h2>${t('p_nav_programs','البرامج')}</h2><p class="mu">${t('pt_progs_p','اثنا عشر برنامجاً، لكل برنامج دوراته وتقييمه القبلي والبعدي وشهادته.')}</p></div><div class="pg-grid" id="pt_pg"></div></section>
+    ${CAN_APP() ? `<section class="pt-app"><div><span class="eyebrow">📲 ${t('app_eb','على جوالك')}</span><h2>${t('app_t','تطبيق بوابة التدريب')}</h2><p>${t('app_p','ثبّت البوابة على جوالك: أيقونة على الشاشة الرئيسية، وفتح بملء الشاشة، ودخول أسرع لدوراتك وشهاداتك وحضورك.')}</p>
+      <div class="pt-cta"><button class="btn gold big" data-install>${t('app_btn','حمّل التطبيق')}</button></div><div class="app-badges"><span>🤖 Android</span><span>🍎 iPhone</span><span>💻 ${t('app_pc_l','الحاسوب')}</span></div></div><div class="app-phone" aria-hidden="true"><div class="ap-screen"><img src="${ASSET}app/icon-192.png" alt=""><b>${t('brand2','بوابة التدريب')}</b><span>${t('uni2','بنيان العالمية')}</span></div></div></section>` : ''}
     <section class="pt-journey"><div class="pt-sh"><h2>${t('p_nav_journey','رحلة المتدرب')}</h2></div><ol class="jr">
       <li><b>1</b><span>${t('jr1','أنشئ حسابك بالاسم والجوال والبريد')}</span></li><li><b>2</b><span>${t('jr2','سجّل في دورة من الإعلانات')}</span></li><li><b>3</b><span>${t('jr3','احضر، ويُسجَّل حضورك تلقائياً')}</span></li><li><b>4</b><span>${t('jr4','أكمل التقييمات')}</span></li><li><b>5</b><span>${t('jr5','اطبع شهادتك الموحدة برمز QR')}</span></li></ol>
       <div class="pt-cta center">${logged?'':`<a class="btn gold big" href="${link('signup')}">${t('pt_start','ابدأ الآن')}</a>`}<a class="btn ghost big" href="${link('verify')}">✅ ${t('pg_verify','التحقق من شهادة')}</a></div></section>`;
@@ -1192,6 +1230,16 @@ async function portalPage(){
   catch(e){ $('#globe').innerHTML = `<p class="mu">${t('pt_noweb','متصفحك لا يدعم الكرة ثلاثية الأبعاد؛ اختر الدولة من القائمة.')}</p>`; }
   app.querySelectorAll('.pt-chips button').forEach(b => b.onclick = () => { const gr = groups.find(g => g.name === b.dataset.c); if(G) G.focus(gr); showCountry(gr); });
   if(groups[0]) showCountry(groups[0]);
+  try{
+    $('#ch_st').innerHTML = donut((D.statuses||[]).map(([k,v]) => [stT(k)||k, v, ST_COLORS[k]||'#5B5C53']), t('runs_word','تنفيذ'));
+    $('#ch_c').innerHTML = colChart(D.countries.map(([k,v]) => ({label: cName(k), values:[v], tip:`<b>${esc(cName(k))}</b><br>${v}`})), {series:[{name:'',color:'#3D5BA9'}], title:'', h:300, minW:640});
+    const byP = {}; D.pins.forEach(p => byP[p[1]] = (byP[p[1]]||0) + 1);
+    const PL = Object.entries(byP).sort((a,b) => b[1]-a[1]).slice(0,14);
+    $('#ch_p').innerHTML = colChart(PL.map(([k,v]) => ({label: pName(k), values:[v], tip:`<b>${esc(pName(k))}</b><br>${v}`})), {series:[{name:'',color:'#B5622C'}], title:'', h:300, minW:640});
+    const byY = {}; D.pins.forEach(p => { const y = String(p[4]||'').slice(0,4); if(/^\d{4}$/.test(y)) byY[y] = (byY[y]||0) + 1; });
+    const YC = ['#3D5BA9','#B5622C','#1F8A5B','#7A3FB0','#C2891F','#5B5C53'];
+    $('#ch_y').innerHTML = donut(Object.keys(byY).sort().map((y,i) => [y, byY[y], YC[i%YC.length]]), t('runs_word','تنفيذ'));
+  }catch(e){}
   $('#pt_pg').innerHTML = (D.progs||[]).map((p,i) => `<article class="pg-card" style="--pc:${PCOL[i%PCOL.length]}"><span class="pg-n">${String(i+1).padStart(2,'0')}</span><h3>${esc(pName(String(p[0]).replace(/^\s*برنامج\s+/,'')))}</h3><p>${esc(p[1]||'')}</p><small>${t('pg_units','{n} دورة',{n:p[2]})}</small></article>`).join('');
 }
 
@@ -1991,5 +2039,6 @@ const LOGGED = () => !!(store('metok') || store('tok'));
   }catch(e){ app.innerHTML = '<div class="card"><h3 class="er">'+esc(trSrv(e))+'</h3><a class="btn sec" href="'+link('home')+'">'+t('back_dir','العودة للدليل')+'</a></div>'; }
 })();
 </script>
+<script>if("serviceWorker" in navigator) addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));</script>
 </body>
 </html>

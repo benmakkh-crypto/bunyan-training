@@ -1,0 +1,18 @@
+{
+  "name": "بوابة التدريب — بنيان العالمية",
+  "short_name": "بوابة التدريب",
+  "description": "بوابة التدريب في جامعة بنيان العالمية: الدورات والإعلانات والحضور والشهادات الموحدة.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./?source=app",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0d1c47",
+  "theme_color": "#26407F",
+  "icons": [
+    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png"},
+    {"src": "icon-mask.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ]
+}
