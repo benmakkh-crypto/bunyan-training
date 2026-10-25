@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>منصة التدريب | جامعة بنيان</title>
-<meta name="description" content="منصة التدريب في جامعة بنيان: برامج تدريبية في عدة دول، تقييم قبلي وبعدي لكل دورة، وشهادات إلكترونية قابلة للتحقق.">
+<title>بوابة التدريب | بنيان العالمية</title>
+<meta name="description" content="بوابة التدريب — بنيان العالمية: برامج تدريبية في عدة دول، تقييم قبلي وبعدي لكل دورة، وشهادات إلكترونية قابلة للتحقق.">
 <link rel="icon" type="image/png" href="favicon.png">
 <script src="i18n.js?v=6280e0e2"></script>
-<meta property="og:title" content="منصة التدريب | جامعة بنيان">
+<meta property="og:title" content="بوابة التدريب | بنيان العالمية">
 <meta property="og:image" content="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,6 +46,7 @@ h2{font-size:clamp(32px,3.8vw,46px);color:var(--lapis-d)}
 .nav ul{display:flex;gap:4px;list-style:none;margin:0 auto 0 0;padding:0}
 .nav ul a{text-decoration:none;padding:8px 12px;border-radius:999px;font-weight:500;color:var(--olive);font-size:15px}
 .nav ul a:hover{background:var(--lapis-l);color:var(--lapis-d)}
+.nav ul a.nav-login{background:var(--lapis-d);color:#fff;font-weight:700}.nav ul a.nav-login:hover{background:var(--copper);color:#fff}
 .btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:999px;padding:12px 22px;font:600 16px var(--body);cursor:pointer;text-decoration:none;transition:transform .15s, box-shadow .15s}
 .btn:hover{transform:translateY(-1px)}
 .btn-lapis{background:var(--lapis);color:#fff;box-shadow:0 8px 20px -10px var(--lapis)}
@@ -197,17 +198,18 @@ footer nav a:hover{color:var(--saffron)}
 
 <header class="nav">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="منصة التدريب - جامعة بنيان">
+    <a class="brand" href="#top" aria-label="بوابة التدريب - بنيان العالمية">
       <img src="mark.png" alt="">
-      <span><b data-i="brand">منصة التدريب</b><small data-i="uni">جامعة بنيان</small></span>
+      <span><b data-i="brand2">بوابة التدريب</b><small data-i="uni2">بنيان العالمية</small></span>
     </a>
     <button class="menu-btn" aria-label="القائمة" aria-expanded="false" aria-controls="menu">☰</button>
     <ul id="menu">
       <li><a href="#programs" data-i="p_nav_programs">البرامج</a></li>
       <li><a href="#journey" data-i="p_nav_journey">رحلة المتدرب</a></li>
       <li><a href="#countries" data-i="p_nav_numbers">بالأرقام</a></li>
-      <li><a href="#verify" data-i="nav_verify">التحقق من شهادة</a></li>
-      <li><a data-app="admin" href="#" data-i="nav_staff">دخول الموظفين</a></li>
+      <li><a data-app="ads" href="#" data-i="nav_ads">الإعلانات</a></li>
+      <li><a data-app="certs" href="#" data-i="certs_t">الشهادات</a></li>
+      <li><a class="nav-login" data-app="login" href="#">🔑 <span data-i="login_title">الدخول</span></a></li>
       <li><select id="langSel" aria-label="Language"></select></li>
     </ul>
     <a class="btn btn-lapis btn-sm" data-app="home" href="#" data-i="p_browse">تصفّح الدورات</a>
@@ -222,8 +224,8 @@ footer nav a:hover{color:var(--saffron)}
         <p data-i="p_hero_p">برامج تدريبية لأئمة المساجد والمعلمين والدعاة والشباب في دول عدة. لكل دورة تقييم قبلي وبعدي، وفي ختام البرنامج شهادة إلكترونية يمكن التحقق منها.</p>
         <div class="actions">
           <a class="btn btn-lapis" data-app="home" href="#" data-i="p_cta_browse">تصفّح الدورات وسجّل</a>
-          <a class="btn btn-copper" href="#verify" data-i="p_cta_verify">تحقق من شهادة</a>
-          <a class="btn btn-ghost" data-app="admin" href="#" data-i="nav_staff">دخول الموظفين</a>
+          <a class="btn btn-copper" data-app="ads" href="#" data-i="ads_t">إعلانات الدورات</a>
+          <a class="btn btn-ghost" data-app="certs" href="#" data-i="certs_t">الشهادات</a>
         </div>
         <div class="facts" aria-label="أرقام المنصة">
           <div style="--fc:var(--lapis)"><b id="f-progs">12</b><span data-i="p_f_progs">برنامجاً تدريبياً</span></div>
@@ -314,7 +316,7 @@ footer nav a:hover{color:var(--saffron)}
           <li data-i="p_st_2">رفع شواهد التنفيذ: صور وفيديو لكل جلسة</li>
           <li data-i="p_st_3">تقارير المتدربين وإصدار الشهادات</li>
         </ul>
-        <a class="btn btn-ghost" data-app="admin" href="#" data-i="nav_staff">دخول الموظفين</a>
+        <a class="btn btn-ghost" data-app="login" href="#">🔑 <span data-i="login_title">الدخول</span></a>
       </div>
     </div>
   </section>
@@ -322,9 +324,9 @@ footer nav a:hover{color:var(--saffron)}
 
 <footer>
   <div class="wrap">
-    <div class="fbrand"><img src="logo.png" alt="شعار جامعة بنيان"><div><b style="color:#fff;font-family:var(--display);font-size:20px" data-i="brand">منصة التدريب</b><br><span data-i="uni">جامعة بنيان</span></div></div>
+    <div class="fbrand"><img src="logo.png" alt="شعار جامعة بنيان"><div><b style="color:#fff;font-family:var(--display);font-size:20px" data-i="brand2">بوابة التدريب</b><br><span data-i="uni2">بنيان العالمية</span></div></div>
     <nav aria-label="روابط سريعة">
-      <a href="#programs" data-i="p_nav_programs">البرامج</a><a href="#journey" data-i="p_nav_journey">رحلة المتدرب</a><a href="#verify" data-i="nav_verify">التحقق من شهادة</a><a data-app="home" href="#" data-i="p_browse">تصفّح الدورات</a><a data-app="admin" href="#" data-i="nav_staff">دخول الموظفين</a>
+      <a href="#programs" data-i="p_nav_programs">البرامج</a><a href="#journey" data-i="p_nav_journey">رحلة المتدرب</a><a href="#verify" data-i="nav_verify">التحقق من شهادة</a><a data-app="home" href="#" data-i="p_browse">تصفّح الدورات</a><a data-app="ads" href="#" data-i="nav_ads">الإعلانات</a><a data-app="certs" href="#" data-i="certs_t">الشهادات</a><a data-app="login" href="#" data-i="login_title">الدخول</a>
     </nav>
     <div class="copy">© <span id="yr">2026</span> <span data-i="p_rights">جامعة بنيان. جميع الحقوق محفوظة.</span></div>
   </div>
@@ -363,7 +365,7 @@ try{ localStorage.setItem('lang', LANG); }catch(e){}
 document.documentElement.lang = LANG; document.documentElement.dir = (LANG==='ar'||LANG==='ur') ? 'rtl' : 'ltr';
 function t(k, ar, vars){ const D=window.BUNYAN_I18N&&window.BUNYAN_I18N[LANG]; let s=(LANG!=='ar'&&D&&D[k])||ar; if(vars) s=String(s).replace(/\{(\w+)\}/g,(m,x)=>vars[x]!=null?vars[x]:m); return s; }
 document.querySelectorAll('[data-i]').forEach(el => { el.textContent = t(el.dataset.i, el.textContent); });
-document.title = t('brand','منصة التدريب') + ' | ' + t('uni','جامعة بنيان');
+document.title = t('brand2','بوابة التدريب') + ' | ' + t('uni2','بنيان العالمية');
 const ls = document.getElementById('langSel');
 ls.innerHTML = LANGS.map(([c,n])=>`<option value="${c}" ${c===LANG?'selected':''}>${n}</option>`).join('');
 ls.onchange = e => { const u = new URL(location.href); u.searchParams.set('lang', e.target.value); location.href = u.toString(); };
@@ -376,7 +378,7 @@ const TRANSLIT = {'النخبة':'Al-Nukhba','بصيرة':'Basira','المربي
 const LQ = LANG!=='ar' ? 'lang='+LANG : '';
 
 // links into the system
-document.querySelectorAll('[data-app]').forEach(a => { a.href = APP + (a.dataset.app === 'admin' ? '?p=admin' + (LQ?'&'+LQ:'') : (LQ?'?'+LQ:'')); });
+document.querySelectorAll('[data-app]').forEach(a => { a.href = APP + '?p=' + a.dataset.app + (LQ?'&'+LQ:''); });
 
 // programs
 document.getElementById('prog-grid').innerHTML = Object.entries(CATALOG).map(([name, list], i) => {
