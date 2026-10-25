@@ -6,6 +6,7 @@
 <title>منصة التدريب | جامعة بنيان</title>
 <meta name="description" content="منصة التدريب في جامعة بنيان: برامج تدريبية في عدة دول، تقييم قبلي وبعدي لكل دورة، وشهادات إلكترونية قابلة للتحقق.">
 <link rel="icon" type="image/png" href="favicon.png">
+<script src="i18n.js"></script>
 <meta property="og:title" content="منصة التدريب | جامعة بنيان">
 <meta property="og:image" content="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -57,7 +58,7 @@ h2{font-size:clamp(32px,3.8vw,46px);color:var(--lapis-d)}
 .hero{position:relative;overflow:hidden;background:linear-gradient(180deg,#fff 0%,var(--mist) 100%)}
 .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding-top:56px;padding-bottom:72px}
 .hero h1{font-size:clamp(44px,6vw,76px);color:var(--ink);font-weight:700;line-height:1.35}
-.hero h1 span{display:block;color:var(--lapis)}
+.hero h1 span{display:block;color:var(--lapis)}.hero h1 span.l1{color:var(--ink)}
 .hero p{font-size:19px;color:var(--muted);max-width:52ch;margin:20px 0 30px}
 .hero .actions{display:flex;gap:12px;flex-wrap:wrap}
 .facts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:38px}
@@ -123,6 +124,10 @@ section{padding:84px 0}
 .chip em{font-style:normal;background:var(--copper-l);color:var(--copper);border-radius:999px;padding:0 9px;font-size:13px}
 .note{color:var(--muted);font-size:14px;margin-top:14px}
 
+#langSel{font:500 14px var(--body);border:1.5px solid var(--line);border-radius:999px;padding:6px 10px;background:#fff;color:var(--lapis-d);cursor:pointer}
+html[dir=ltr] .steps li::before{right:auto;left:0}html[dir=ltr] .steps li:not(:last-child)::after{right:-6px;left:58px}
+html:not([lang=ar]) h1,html:not([lang=ar]) h2,html:not([lang=ar]) h3,html:not([lang=ar]) .brand b{font-family:var(--body);letter-spacing:-.5px}
+html:not([lang=ar]) .hero h1{font-size:clamp(34px,4.4vw,56px)}
 /* numbers & charts */
 .stats-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:22px}
 .chart-panel{background:#fff;border:1.5px solid var(--line);border-radius:24px;padding:26px;min-width:0}
@@ -175,6 +180,7 @@ footer nav a:hover{color:var(--saffron)}
   .facts{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:760px){
+  html[dir=ltr] .steps li{padding:0 0 0 66px}
   .menu-btn{display:block}
   .nav ul{display:none;position:absolute;top:72px;right:0;left:0;background:#fff;flex-direction:column;padding:10px 20px 18px;border-bottom:1px solid var(--line)}
   .nav ul.open{display:flex}
@@ -193,17 +199,18 @@ footer nav a:hover{color:var(--saffron)}
   <div class="wrap">
     <a class="brand" href="#top" aria-label="منصة التدريب - جامعة بنيان">
       <img src="mark.png" alt="">
-      <span><b>منصة التدريب</b><small>جامعة بنيان</small></span>
+      <span><b data-i="brand">منصة التدريب</b><small data-i="uni">جامعة بنيان</small></span>
     </a>
     <button class="menu-btn" aria-label="القائمة" aria-expanded="false" aria-controls="menu">☰</button>
     <ul id="menu">
-      <li><a href="#programs">البرامج</a></li>
-      <li><a href="#journey">رحلة المتدرب</a></li>
-      <li><a href="#countries">بالأرقام</a></li>
-      <li><a href="#verify">التحقق من شهادة</a></li>
-      <li><a data-app="admin" href="#">دخول الموظفين</a></li>
+      <li><a href="#programs" data-i="p_nav_programs">البرامج</a></li>
+      <li><a href="#journey" data-i="p_nav_journey">رحلة المتدرب</a></li>
+      <li><a href="#countries" data-i="p_nav_numbers">بالأرقام</a></li>
+      <li><a href="#verify" data-i="nav_verify">التحقق من شهادة</a></li>
+      <li><a data-app="admin" href="#" data-i="nav_staff">دخول الموظفين</a></li>
+      <li><select id="langSel" aria-label="Language"></select></li>
     </ul>
-    <a class="btn btn-lapis btn-sm" data-app="home" href="#">تصفّح الدورات</a>
+    <a class="btn btn-lapis btn-sm" data-app="home" href="#" data-i="p_browse">تصفّح الدورات</a>
   </div>
 </header>
 
@@ -211,18 +218,18 @@ footer nav a:hover{color:var(--saffron)}
   <div class="hero">
     <div class="wrap">
       <div>
-        <h1>نبني القدرات<span>ونوثّق الأثر</span></h1>
-        <p>برامج تدريبية لأئمة المساجد والمعلمين والدعاة والشباب في دول عدة. لكل دورة تقييم قبلي وبعدي، وفي ختام البرنامج شهادة إلكترونية يمكن التحقق منها.</p>
+        <h1><span class="l1" data-i="p_h1a">نبني القدرات</span><span data-i="p_h1b">ونوثّق الأثر</span></h1>
+        <p data-i="p_hero_p">برامج تدريبية لأئمة المساجد والمعلمين والدعاة والشباب في دول عدة. لكل دورة تقييم قبلي وبعدي، وفي ختام البرنامج شهادة إلكترونية يمكن التحقق منها.</p>
         <div class="actions">
-          <a class="btn btn-lapis" data-app="home" href="#">تصفّح الدورات وسجّل</a>
-          <a class="btn btn-copper" href="#verify">تحقق من شهادة</a>
-          <a class="btn btn-ghost" data-app="admin" href="#">دخول الموظفين</a>
+          <a class="btn btn-lapis" data-app="home" href="#" data-i="p_cta_browse">تصفّح الدورات وسجّل</a>
+          <a class="btn btn-copper" href="#verify" data-i="p_cta_verify">تحقق من شهادة</a>
+          <a class="btn btn-ghost" data-app="admin" href="#" data-i="nav_staff">دخول الموظفين</a>
         </div>
         <div class="facts" aria-label="أرقام المنصة">
-          <div style="--fc:var(--lapis)"><b id="f-progs">12</b>برنامجاً تدريبياً</div>
-          <div style="--fc:var(--copper)"><b id="f-courses">137</b>دورة</div>
-          <div style="--fc:var(--olive)"><b id="f-countries">12</b>دولة</div>
-          <div style="--fc:#1F8A5B"><b id="f-trained">4,116</b>متدرباً حتى الآن</div>
+          <div style="--fc:var(--lapis)"><b id="f-progs">12</b><span data-i="p_f_progs">برنامجاً تدريبياً</span></div>
+          <div style="--fc:var(--copper)"><b id="f-courses">137</b><span data-i="p_f_courses">دورة</span></div>
+          <div style="--fc:var(--olive)"><b id="f-countries">12</b><span data-i="st_countries">دولة</span></div>
+          <div style="--fc:#1F8A5B"><b id="f-trained">4,116</b><span data-i="p_f_trained">متدرباً حتى الآن</span></div>
         </div>
       </div>
       <div class="arch-stage" aria-hidden="true">
@@ -230,8 +237,8 @@ footer nav a:hover{color:var(--saffron)}
           <i></i><i></i><i></i>
           <div class="door">
             <img src="logo.png" alt="">
-            <strong>من الباب إلى الأثر</strong>
-            <span>تسجيل، تقييم، شهادة</span>
+            <strong data-i="p_arch_t">من الباب إلى الأثر</strong>
+            <span data-i="p_arch_s">تسجيل، تقييم، شهادة</span>
           </div>
           <div class="keystone"></div>
         </div>
@@ -243,10 +250,10 @@ footer nav a:hover{color:var(--saffron)}
     <div class="wrap">
       <div class="sec-head">
         <div>
-          <h2>البرامج التدريبية</h2>
-          <p class="lead">اثنا عشر برنامجاً، يضم كل برنامج مجموعة دورات متتابعة. افتح أي برنامج لترى دوراته.</p>
+          <h2 data-i="p_prog_h">البرامج التدريبية</h2>
+          <p class="lead" data-i="p_prog_lead">اثنا عشر برنامجاً، يضم كل برنامج مجموعة دورات متتابعة. افتح أي برنامج لترى دوراته.</p>
         </div>
-        <a class="btn btn-ghost" data-app="home" href="#">الدورات المتاحة الآن حسب الدولة</a>
+        <a class="btn btn-ghost" data-app="home" href="#" data-i="p_prog_btn">الدورات المتاحة الآن حسب الدولة</a>
       </div>
       <div class="prog-grid" id="prog-grid"></div>
     </div>
@@ -254,15 +261,15 @@ footer nav a:hover{color:var(--saffron)}
 
   <section class="journey" id="journey">
     <div class="wrap">
-      <h2>رحلة المتدرب</h2>
-      <p class="lead">كل خطوة برابط خاص بالبرنامج الذي سجّلت فيه، وتظهر لك نتيجتك ومقدار تحسّنك بعد كل دورة.</p>
+      <h2 data-i="p_nav_journey">رحلة المتدرب</h2>
+      <p class="lead" data-i="p_j_lead">كل خطوة برابط خاص بالبرنامج الذي سجّلت فيه، وتظهر لك نتيجتك ومقدار تحسّنك بعد كل دورة.</p>
       <ol class="steps">
-        <li><b>التسجيل</b><span>اسمك الثلاثي كما تريده في الشهادة، وبريدك.</span></li>
-        <li><b>التقييم القبلي</b><span>قبل كل دورة، لقياس نقطة البداية.</span></li>
-        <li><b>حضور الدورة</b><span>في موقع التنفيذ أو عن بُعد.</span></li>
-        <li><b>التقييم البعدي</b><span>بعد كل دورة، مع مقارنة بالقبلي.</span></li>
-        <li><b>تقييم البرنامج</b><span>رأيك في المحتوى والمدربين والتنظيم.</span></li>
-        <li><b>الشهادة</b><span>PDF أو صورة، برقم ورمز تحقق.</span></li>
+        <li><b data-i="p_s1t">التسجيل</b><span data-i="p_s1d">اسمك الثلاثي كما تريده في الشهادة، وبريدك.</span></li>
+        <li><b data-i="p_s2t">التقييم القبلي</b><span data-i="p_s2d">قبل كل دورة، لقياس نقطة البداية.</span></li>
+        <li><b data-i="p_s3t">حضور الدورة</b><span data-i="p_s3d">في موقع التنفيذ أو عن بُعد.</span></li>
+        <li><b data-i="p_s4t">التقييم البعدي</b><span data-i="p_s4d">بعد كل دورة، مع مقارنة بالقبلي.</span></li>
+        <li><b data-i="p_s5t">تقييم البرنامج</b><span data-i="p_s5d">رأيك في المحتوى والمدربين والتنظيم.</span></li>
+        <li><b data-i="p_s6t">الشهادة</b><span data-i="p_s6d">PDF أو صورة، برقم ورمز تحقق.</span></li>
       </ol>
     </div>
   </section>
@@ -271,18 +278,18 @@ footer nav a:hover{color:var(--saffron)}
     <div class="wrap">
       <div class="sec-head">
         <div>
-          <h2>التدريب بالأرقام</h2>
-          <p class="lead">خطة العام لبرامج التدريب: المستهدف، والمتحقق حتى الآن، وتوزيع الدورات على الدول وحالات التنفيذ.</p>
+          <h2 data-i="p_num_h">التدريب بالأرقام</h2>
+          <p class="lead" data-i="p_num_lead">خطة العام لبرامج التدريب: المستهدف، والمتحقق حتى الآن، وتوزيع الدورات على الدول وحالات التنفيذ.</p>
         </div>
       </div>
       <div class="bigline">
-        <div><b id="n-target">7,165</b>متدرباً مستهدفاً</div>
-        <div><b id="n-achieved">4,116</b>متدرباً تم تدريبهم</div>
-        <div><b id="n-pct">57%</b>نسبة الإنجاز<div class="progress"><i id="n-bar" style="width:57%"></i></div></div>
+        <div><b id="n-target">7,165</b><span data-i="p_target">متدرباً مستهدفاً</span></div>
+        <div><b id="n-achieved">4,116</b><span data-i="p_achieved">متدرباً تم تدريبهم</span></div>
+        <div><b id="n-pct">57%</b><span data-i="p_pct">نسبة الإنجاز</span><div class="progress"><i id="n-bar" style="width:57%"></i></div></div>
       </div>
       <div class="stats-grid">
-        <div class="chart-panel"><h3>الدورات حسب الدولة</h3><p class="sub">عدد الدورات التدريبية المسجّلة لكل دولة</p><div id="c-countries"></div></div>
-        <div class="chart-panel"><h3>حالة التنفيذ</h3><p class="sub">توزيع الدورات حسب حالتها</p><div id="c-status"></div></div>
+        <div class="chart-panel"><h3 data-i="p_ch_country">الدورات حسب الدولة</h3><p class="sub" data-i="p_ch_country_s">عدد الدورات التدريبية المسجّلة لكل دولة</p><div id="c-countries"></div></div>
+        <div class="chart-panel"><h3 data-i="p_ch_status">حالة التنفيذ</h3><p class="sub" data-i="p_ch_status_s">توزيع الدورات حسب حالتها</p><div id="c-status"></div></div>
       </div>
       <p class="note" id="live-note"></p>
     </div>
@@ -291,23 +298,23 @@ footer nav a:hover{color:var(--saffron)}
   <section id="verify">
     <div class="wrap duo">
       <div class="panel">
-        <h3>التحقق من شهادة</h3>
-        <p>اكتب رمز التحقق المطبوع أسفل الشهادة لتتأكد من صحتها واسم صاحبها.</p>
+        <h3 data-i="nav_verify">التحقق من شهادة</h3>
+        <p data-i="p_v_p">اكتب رمز التحقق المطبوع أسفل الشهادة لتتأكد من صحتها واسم صاحبها.</p>
         <form class="verify-form" id="verify-form">
-          <label for="code" class="sr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">رمز التحقق</label>
+          <label for="code" class="sr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)" data-i="verify_code">رمز التحقق</label>
           <input id="code" name="code" placeholder="8F3A21C9" autocomplete="off" maxlength="12" required>
-          <button class="btn btn-copper" type="submit">تحقق</button>
+          <button class="btn btn-copper" type="submit" data-i="verify_btn">تحقق</button>
         </form>
       </div>
       <div class="panel staff">
-        <h3>لفريق العمل</h3>
-        <p>كل موظف يدخل برمزه الخاص، ويرى ما تسمح به صلاحيات مسمّاه.</p>
+        <h3 data-i="p_st_h">لفريق العمل</h3>
+        <p data-i="p_st_p">كل موظف يدخل برمزه الخاص، ويرى ما تسمح به صلاحيات مسمّاه.</p>
         <ul class="feat">
-          <li>متابعة الدورات وحالاتها حسب الدولة والبرنامج</li>
-          <li>رفع شواهد التنفيذ: صور وفيديو لكل جلسة</li>
-          <li>تقارير المتدربين وإصدار الشهادات</li>
+          <li data-i="p_st_1">متابعة الدورات وحالاتها حسب الدولة والبرنامج</li>
+          <li data-i="p_st_2">رفع شواهد التنفيذ: صور وفيديو لكل جلسة</li>
+          <li data-i="p_st_3">تقارير المتدربين وإصدار الشهادات</li>
         </ul>
-        <a class="btn btn-ghost" data-app="admin" href="#">دخول الموظفين</a>
+        <a class="btn btn-ghost" data-app="admin" href="#" data-i="nav_staff">دخول الموظفين</a>
       </div>
     </div>
   </section>
@@ -315,11 +322,11 @@ footer nav a:hover{color:var(--saffron)}
 
 <footer>
   <div class="wrap">
-    <div class="fbrand"><img src="logo.png" alt="شعار جامعة بنيان"><div><b style="color:#fff;font-family:var(--display);font-size:20px">منصة التدريب</b><br>جامعة بنيان</div></div>
+    <div class="fbrand"><img src="logo.png" alt="شعار جامعة بنيان"><div><b style="color:#fff;font-family:var(--display);font-size:20px" data-i="brand">منصة التدريب</b><br><span data-i="uni">جامعة بنيان</span></div></div>
     <nav aria-label="روابط سريعة">
-      <a href="#programs">البرامج</a><a href="#journey">رحلة المتدرب</a><a href="#verify">التحقق من شهادة</a><a data-app="home" href="#">تصفّح الدورات</a><a data-app="admin" href="#">دخول الموظفين</a>
+      <a href="#programs" data-i="p_nav_programs">البرامج</a><a href="#journey" data-i="p_nav_journey">رحلة المتدرب</a><a href="#verify" data-i="nav_verify">التحقق من شهادة</a><a data-app="home" href="#" data-i="p_browse">تصفّح الدورات</a><a data-app="admin" href="#" data-i="nav_staff">دخول الموظفين</a>
     </nav>
-    <div class="copy">© <span id="yr">2026</span> جامعة بنيان. جميع الحقوق محفوظة.</div>
+    <div class="copy">© <span id="yr">2026</span> <span data-i="p_rights">جامعة بنيان. جميع الحقوق محفوظة.</span></div>
   </div>
 </footer>
 
@@ -343,20 +350,41 @@ const ABOUT = {
   'ميراث':'تأهيل معلمي العلم الشرعي',
   'وقاية':'التحصين الفكري والوقاية من التطرف'
 };
-const COLORS = ['#3D5BA9','#B5622C','#5B5C53','#2E7D6B','#8A4FA3','#C2891F'];
 const FALLBACK = {"programs": 12, "courses": 137, "target": 7165, "achieved": 4116, "countries": [["إثيوبيا", 59], ["بنجلاديش", 53], ["السعودية", 19], ["إندونيسيا", 17], ["اليمن", 15], ["السنغال", 4], ["ميانمار", 3], ["نيجيريا", 2], ["مصر", 1], ["غانا", 1], ["فلسطين", 1], ["لبنان", 1]], "statuses": [["تم التنفيذ", 105], ["جاري التنفيذ", 4], ["لم يبدأ تنفيذه", 67]]};
+const COLORS = ['#3D5BA9','#B5622C','#5B5C53','#2E7D6B','#8A4FA3','#C2891F'];
 const esc = s => String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
+// languages
+const LANGS = [['ar','العربية'],['en','English'],['ur','اردو'],['fr','Français'],['es','Español'],['ru','Русский'],['zh','中文'],['id','Bahasa Indonesia'],['tr','Türkçe'],['bn','বাংলা'],['am','አማርኛ'],['ha','Hausa'],['sw','Kiswahili']];
+const qLang = new URLSearchParams(location.search).get('lang');
+let LANG = qLang || (()=>{ try{ return localStorage.getItem('lang'); }catch(e){ return null; } })() || 'ar';
+if(!LANGS.some(l=>l[0]===LANG)) LANG='ar';
+try{ localStorage.setItem('lang', LANG); }catch(e){}
+document.documentElement.lang = LANG; document.documentElement.dir = (LANG==='ar'||LANG==='ur') ? 'rtl' : 'ltr';
+function t(k, ar, vars){ const D=window.BUNYAN_I18N&&window.BUNYAN_I18N[LANG]; let s=(LANG!=='ar'&&D&&D[k])||ar; if(vars) s=String(s).replace(/\{(\w+)\}/g,(m,x)=>vars[x]!=null?vars[x]:m); return s; }
+document.querySelectorAll('[data-i]').forEach(el => { el.textContent = t(el.dataset.i, el.textContent); });
+document.title = t('brand','منصة التدريب') + ' | ' + t('uni','جامعة بنيان');
+const ls = document.getElementById('langSel');
+ls.innerHTML = LANGS.map(([c,n])=>`<option value="${c}" ${c===LANG?'selected':''}>${n}</option>`).join('');
+ls.onchange = e => { const u = new URL(location.href); u.searchParams.set('lang', e.target.value); location.href = u.toString(); };
+const ST_K = {'تم التنفيذ':'s_done','جاري التنفيذ':'s_prog','لم يبدأ تنفيذه':'s_ns','متعثر':'s_stalled','مؤجل':'s_post','ملغى':'s_cancel'};
+const stT = s => ST_K[s] ? t(ST_K[s], s) : s;
+const ISO = {'إثيوبيا':'ET','بنجلاديش':'BD','السعودية':'SA','إندونيسيا':'ID','اليمن':'YE','السنغال':'SN','ميانمار':'MM','نيجيريا':'NG','مصر':'EG','غانا':'GH','فلسطين':'PS','لبنان':'LB','الهند':'IN','باكستان':'PK','أوغندا':'UG','كينيا':'KE','تنزانيا':'TZ','الصومال':'SO','السودان':'SD','تشاد':'TD','مالي':'ML','النيجر':'NE','تركيا':'TR','ماليزيا':'MY','الفلبين':'PH'};
+let REG=null; try{ REG = new Intl.DisplayNames([LANG], {type:'region'}); }catch(e){}
+const cName = c => { if(LANG==='ar') return c; const k=ISO[c]; try{ return k&&REG?REG.of(k):c; }catch(e){ return c; } };
+const TRANSLIT = {'النخبة':'Al-Nukhba','بصيرة':'Basira','المربي':'Al-Murabbi','الرواد':'Al-Ruwwad','الأترجة':'Al-Utrujja','تمهير':'Tamheer','حكيم':'Hakeem','رعاية':'Riaya','سفير':'Safeer','ياهلا':'Ya Hala','ميراث':'Mirath','وقاية':'Wiqaya'};
+const LQ = LANG!=='ar' ? 'lang='+LANG : '';
+
 // links into the system
-document.querySelectorAll('[data-app]').forEach(a => { a.href = APP + (a.dataset.app === 'admin' ? '?p=admin' : ''); });
+document.querySelectorAll('[data-app]').forEach(a => { a.href = APP + (a.dataset.app === 'admin' ? '?p=admin' + (LQ?'&'+LQ:'') : (LQ?'?'+LQ:'')); });
 
 // programs
 document.getElementById('prog-grid').innerHTML = Object.entries(CATALOG).map(([name, list], i) => {
   const short = name.replace('برنامج ','');
   return `<article class="prog" style="--c:${COLORS[i % COLORS.length]}">
-    <h3>${esc(short)}</h3><span class="count">${list.length} دورة</span>
-    <p>${esc(ABOUT[short]||'')}</p>
-    <details><summary>دورات البرنامج</summary><ol>${list.map(c=>`<li>${esc(c)}</li>`).join('')}</ol></details>
+    <h3>${esc(short)}</h3>${LANG!=='ar'&&TRANSLIT[short]?`<span class="count" style="color:var(--c)">${TRANSLIT[short]}</span>`:''}<span class="count">${t('p_n_courses','{n} دورة',{n:list.length})}</span>
+    <p>${esc(t('pa_'+short, ABOUT[short]||''))}</p>
+    <details><summary>${t('p_prog_list','دورات البرنامج')}</summary><ol>${list.map(c=>`<li>${esc(c)}</li>`).join('')}</ol></details>
   </article>`;
 }).join('');
 
@@ -372,10 +400,10 @@ function colChart(data){
   data.forEach(([l,v],i)=>{ const cx=W-pr-(i+.5)*gw, x=cx-bw/2, yy=y(v), h=pt+ih-yy, r=Math.min(4,h);
     g+=`<path d="M${x},${pt+ih} V${yy+r} Q${x},${yy} ${x+r},${yy} H${x+bw-r} Q${x+bw},${yy} ${x+bw},${yy+r} V${pt+ih} Z" fill="#3D5BA9"/>`;
     g+=`<text x="${cx}" y="${yy-7}" font-size="13" font-weight="700" fill="#1E2433" text-anchor="middle">${fmtN(v)}</text>`;
-    g+=`<rect x="${cx-gw/2}" y="${pt}" width="${gw}" height="${ih}" fill="transparent" data-tip="${esc(l)}: ${fmtN(v)} دورة"/>`;
+    g+=`<rect x="${cx-gw/2}" y="${pt}" width="${gw}" height="${ih}" fill="transparent" data-tip="${esc(l)}: ${fmtN(v)} ${esc(t('p_unit_course','دورة'))}"/>`;
     g+=`<text x="${cx}" y="${pt+ih+16}" font-size="13" fill="#1E2433" text-anchor="end" transform="rotate(-35 ${cx} ${pt+ih+16})">${esc(l)}</text>`; });
   g+=`<line x1="${pl}" x2="${W-pr}" y1="${pt+ih}" y2="${pt+ih}" stroke="#9AA3B5"/>`;
-  return `<div class="cscroll"><svg width="100%" viewBox="0 0 ${W} ${H}" style="min-width:${Math.min(W,520)}px;height:auto;direction:ltr;font-family:'IBM Plex Sans Arabic',sans-serif" role="img" aria-label="الدورات حسب الدولة">${g}</svg></div>`;
+  return `<div class="cscroll"><svg width="100%" viewBox="0 0 ${W} ${H}" style="min-width:${Math.min(W,520)}px;height:auto;direction:ltr;font-family:'IBM Plex Sans Arabic',sans-serif" role="img" aria-label="${esc(t('p_ch_country','الدورات حسب الدولة'))}">${g}</svg></div>`;
 }
 function donut(rows, label){
   const tot=rows.reduce((a,r)=>a+r[1],0)||1, R=78, C=2*Math.PI*R, S=210; let off=0, arcs='';
@@ -385,15 +413,15 @@ function donut(rows, label){
   <div class="legend" style="flex:1;min-width:190px">${rows.map(([l,v,c])=>`<div><i style="background:${c}"></i>${esc(l)}<b>${fmtN(v)} · ${Math.round(v/tot*100)}%</b></div>`).join('')}</div></div>`;
 }
 function drawStats(d){
-  if(d.countries && d.countries.length){ document.getElementById('c-countries').innerHTML = colChart(d.countries); document.getElementById('f-countries').textContent = d.countries.length; }
-  if(d.statuses && d.statuses.length) document.getElementById('c-status').innerHTML = donut(d.statuses.map(([s,n])=>[s,n,ST_COLORS[s]||'#5B5C53']), 'دورة');
+  if(d.countries && d.countries.length){ document.getElementById('c-countries').innerHTML = colChart(d.countries.map(([c,n])=>[cName(c),n])); document.getElementById('f-countries').textContent = d.countries.length; }
+  if(d.statuses && d.statuses.length) document.getElementById('c-status').innerHTML = donut(d.statuses.map(([s,n])=>[stT(s),n,ST_COLORS[s]||'#5B5C53']), t('p_unit_course','دورة'));
   if(d.programs) document.getElementById('f-progs').textContent = d.programs;
   if(d.courses) document.getElementById('f-courses').textContent = d.courses;
   if(d.achieved!=null){ document.getElementById('f-trained').textContent = fmtN(d.achieved); document.getElementById('n-achieved').textContent = fmtN(d.achieved); }
   if(d.target){ const p=Math.round(d.achieved/d.target*100); document.getElementById('n-target').textContent = fmtN(d.target); document.getElementById('n-pct').textContent = p+'%'; document.getElementById('n-bar').style.width = Math.min(p,100)+'%'; }
 }
 drawStats(FALLBACK);
-fetch(APP + '?p=json').then(r => r.json()).then(d => { drawStats(d); document.getElementById('live-note').textContent = 'تُحدَّث هذه الأرقام تلقائياً من نظام التدريب' + (d.updated ? ' (آخر تحديث ' + d.updated + ')' : '') + '.'; }).catch(() => {});
+fetch(APP + '?p=json').then(r => r.json()).then(d => { drawStats(d); document.getElementById('live-note').textContent = t('p_live','تُحدَّث هذه الأرقام تلقائياً من نظام التدريب') + (d.updated ? ' (' + t('p_updated','آخر تحديث') + ' ' + d.updated + ')' : '') + '.'; }).catch(() => {});
 document.addEventListener('mousemove', e=>{ const t=document.getElementById('ctip'), el=e.target.closest && e.target.closest('[data-tip]');
   if(!el){ t.style.display='none'; return; } t.textContent=el.dataset.tip; t.style.display='block';
   t.style.left=Math.max(8,Math.min(e.clientX+14, innerWidth-t.offsetWidth-8))+'px'; t.style.top=Math.max(8,e.clientY-t.offsetHeight-12)+'px'; });
@@ -402,7 +430,7 @@ document.addEventListener('mousemove', e=>{ const t=document.getElementById('cti
 document.getElementById('verify-form').addEventListener('submit', e => {
   e.preventDefault();
   const code = document.getElementById('code').value.trim();
-  if (code) location.href = APP + '?p=verify&code=' + encodeURIComponent(code);
+  if (code) location.href = APP + '?p=verify&code=' + encodeURIComponent(code) + (LQ?'&'+LQ:'');
 });
 
 // mobile menu
