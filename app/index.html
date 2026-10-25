@@ -304,17 +304,49 @@ html:not([lang=ar]) h2,html:not([lang=ar]) h3,html:not([lang=ar]) .top b,html:no
 #me_all .card{margin-top:16px}
 @media(max-width:900px){.me-hero{grid-template-columns:1fr}.mh-acts{flex-direction:row}.mh-kpis div{flex:1;min-width:0}}
 @media(max-width:560px){.me-tabs button{flex-direction:column;gap:2px;font-size:13px;padding:10px 4px}.mh-id h1{font-size:26px}.mh-av{flex-basis:56px;height:56px;font-size:19px}}
+/* ===== v7: البوابة العالمية ===== */
+.pt-hero{position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:10px 26px;align-items:center;border-radius:30px;padding:34px 36px;margin-bottom:18px;color:#fff;
+  background:radial-gradient(900px 500px at 75% 50%,#1d3a86 0%,transparent 60%),radial-gradient(600px 300px at 0% 110%,rgba(227,167,47,.28),transparent 60%),linear-gradient(140deg,#060d24,#0d1c47 55%,#0a1535)}
+.pt-stars{position:absolute;inset:0;pointer-events:none;opacity:.55;background-image:radial-gradient(1.2px 1.2px at 12% 18%,#fff,transparent),radial-gradient(1px 1px at 28% 72%,#cfe0ff,transparent),radial-gradient(1.4px 1.4px at 46% 12%,#fff,transparent),radial-gradient(1px 1px at 63% 86%,#fff,transparent),radial-gradient(1.2px 1.2px at 82% 22%,#ffe9b0,transparent),radial-gradient(1px 1px at 92% 64%,#fff,transparent),radial-gradient(1px 1px at 6% 52%,#fff,transparent),radial-gradient(1.3px 1.3px at 38% 44%,#dfe8ff,transparent),radial-gradient(1px 1px at 72% 40%,#fff,transparent),radial-gradient(1px 1px at 55% 60%,#fff,transparent);background-size:340px 340px}
+.pt-txt{position:relative;z-index:1}.pt-txt h1{font-family:'Uthman Naskh','IBM Plex Sans Arabic',serif;font-size:62px;line-height:1.2;margin:6px 0 10px;background:linear-gradient(90deg,#fff,#F4D58D);-webkit-background-clip:text;background-clip:text;color:transparent}
+.pt-txt .lead{font-size:17.5px;line-height:2;color:#D5DFF5;margin:0 0 18px;max-width:560px}.pt-txt .eyebrow{background:rgba(255,255,255,.12);color:#F4D58D}
+.pt-cta{display:flex;gap:10px;flex-wrap:wrap}.pt-cta.center{justify-content:center;margin-top:16px}
+.pt-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:22px}.pt-kpis div{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:12px 10px;text-align:center}
+.pt-kpis b{display:block;font-size:30px;line-height:1.15;color:#fff;font-variant-numeric:tabular-nums}.pt-kpis span{font-size:12.5px;color:#C9D5F0}
+.pt-hint{font-size:13px;color:#A9B8DC;margin:14px 0 0}
+.pt-globe{position:relative;z-index:1}.globe{position:relative;width:100%;max-width:600px;aspect-ratio:1;margin:0 auto}.globe .loader{position:absolute;inset:0;display:grid;place-items:center}
+.gl-c,.gl-o{position:absolute;inset:0}.gl-o{cursor:grab;touch-action:none}
+.gl-tip{position:absolute;display:none;transform:translate(-50%,-100%);background:rgba(10,20,50,.92);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:12px;padding:7px 11px;font-size:13px;white-space:nowrap;pointer-events:none;z-index:3}
+.gl-tip b{display:block;color:#F4D58D}.gl-tip span{color:#D5DFF5;font-size:12px}
+.pt-legend{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;font-size:12.5px;color:#C9D5F0;margin-top:4px}.pt-legend span{display:flex;gap:6px;align-items:center}
+.lg-pin{width:12px;height:12px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:linear-gradient(#FFD27A,#B5622C)}.lg-dot{width:8px;height:8px;border-radius:50%;background:#fff}.lg-dot.open{background:#5BE3A0}
+.pt-countries{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:16px;margin-bottom:22px;align-items:start}
+.pt-panel{background:#fff;border:1px solid var(--bd);border-radius:22px;padding:18px;min-height:200px}.pp-h{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--bd);padding-bottom:10px;margin-bottom:8px}
+.pp-h h3{margin:4px 0 0;font-size:28px}.pp-h>b{font-size:34px;color:var(--g);text-align:center;line-height:1}.pp-h>b small{display:block;font-size:12px;color:var(--mu)}
+.pp-list{list-style:none;margin:0;padding:0;max-height:360px;overflow:auto}.pp-list a{display:flex;gap:10px;align-items:center;padding:9px 6px;border-radius:12px;text-decoration:none;color:var(--tx)}.pp-list a:hover{background:#F3F6FC}
+.pp-list i{flex:0 0 10px;height:10px;border-radius:50%;background:#3E5FAE}.pp-list i.open{background:#1F8A5B}.pp-list .pp-t{flex:1;min-width:0}.pp-list b{display:block}.pp-list small{color:var(--mu)}.pp-list em{font-style:normal;font-size:12px;font-weight:700;color:#1F8A5B;background:#E3F4EC;border-radius:99px;padding:3px 10px}
+.pp-note{margin:10px 0 0;font-size:13px}
+.pt-chips{display:flex;flex-wrap:wrap;gap:8px}.pt-chips button{display:flex;gap:8px;align-items:center;border:1px solid var(--bd);background:#fff;border-radius:99px;padding:8px 14px;font:600 14px 'IBM Plex Sans Arabic',Tahoma,sans-serif;cursor:pointer;color:var(--p2)}
+.pt-chips button em{font-style:normal;background:#EEF2FB;border-radius:99px;padding:1px 8px;font-size:12px}.pt-chips button.on{background:var(--p2);color:#fff;border-color:var(--p2)}.pt-chips button.on em{background:rgba(255,255,255,.2)}
+.pt-sh{text-align:center;margin:8px 0 16px}.pt-sh h2{font-size:34px;margin:0}.pt-sh p{margin:4px 0 0}
+.pg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-bottom:26px}
+.pg-card{position:relative;background:#fff;border:1px solid var(--bd);border-radius:20px;padding:18px 18px 16px;overflow:hidden}.pg-card:before{content:"";position:absolute;inset-inline:0;top:0;height:5px;background:var(--pc)}
+.pg-card .pg-n{font-weight:800;color:var(--pc);opacity:.35;font-size:30px;position:absolute;inset-inline-end:14px;top:8px}.pg-card h3{color:var(--pc);margin:4px 0 6px;font-size:24px}.pg-card p{margin:0 0 8px;color:var(--mu);font-size:14px;line-height:1.8;min-height:50px}.pg-card small{font-weight:700;color:var(--p2)}
+.pt-journey{background:#fff;border:1px solid var(--bd);border-radius:26px;padding:24px;margin-bottom:10px}.jr{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.jr li{text-align:center;background:#F6F8FC;border-radius:18px;padding:16px 10px}.jr b{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#26407F,#3D5BA9);color:#fff;font-size:18px;margin-bottom:8px}.jr span{display:block;font-weight:600;font-size:14px}
+@media(max-width:980px){.pt-hero{grid-template-columns:1fr;padding:24px}.pt-globe{order:-1}.pt-txt h1{font-size:46px}.pt-countries{grid-template-columns:1fr}.jr{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.pt-kpis{grid-template-columns:1fr 1fr}.pt-txt h1{font-size:40px}}
 </style>
 </head>
 <body>
 <header class="top">
-  <a class="id" href="https://benmakkh-crypto.github.io/bunyan-training/"><img src="https://benmakkh-crypto.github.io/bunyan-training/logo.png" alt="Bonyan University"><span><b id="hdr-name">منصة التدريب</b><br><small id="hdr-uni">جامعة بنيان</small></span></a>
+  <a class="id" href="https://benmakkh-crypto.github.io/bunyan-training/app/"><img src="https://benmakkh-crypto.github.io/bunyan-training/logo.png" alt="Bonyan University"><span><b id="hdr-name">منصة التدريب</b><br><small id="hdr-uni">جامعة بنيان</small></span></a>
   <nav id="hdr-nav"><a href="https://benmakkh-crypto.github.io/bunyan-training/app/?p=home">الدورات</a> &nbsp;|&nbsp; <a href="https://benmakkh-crypto.github.io/bunyan-training/app/?p=verify">التحقق من شهادة</a> &nbsp;|&nbsp; <a href="https://benmakkh-crypto.github.io/bunyan-training/app/?p=admin">دخول الموظفين</a></nav>
 </header>
 <div class="crumbs"><div class="in">
   <button type="button" id="crumb-back" onclick="goBack()">→ رجوع</button>
   <a id="crumb-home" href="https://benmakkh-crypto.github.io/bunyan-training/app/?p=home">الرئيسية</a>
-  <a id="crumb-portal" href="https://benmakkh-crypto.github.io/bunyan-training/">بوابة المنصة</a>
+  <a id="crumb-portal" href="https://benmakkh-crypto.github.io/bunyan-training/app/">بوابة المنصة</a>
   <span class="here" id="here"></span>
 </div></div>
 <main id="app"><div class="loader">جارٍ التحميل…</div></main>
@@ -325,7 +357,7 @@ html:not([lang=ar]) h2,html:not([lang=ar]) h3,html:not([lang=ar]) .top b,html:no
 <script>
 const QS = new URLSearchParams(location.search);
 const PORTAL = 'https://benmakkh-crypto.github.io/bunyan-training/', LANG0 = (QS.get('lang')||'').replace(/[^a-z]/g,'').slice(0,3);
-const PAGE = QS.get('p')||'home', CID = QS.get('id')||'', CODE = QS.get('code')||'', SLOT = QS.get('n')||'', BASE = 'https://benmakkh-crypto.github.io/bunyan-training/app/';
+const PAGE = QS.get('p')||'portal', CID = QS.get('id')||'', CODE = QS.get('code')||'', SLOT = QS.get('n')||'', BASE = 'https://benmakkh-crypto.github.io/bunyan-training/app/';
 const $ = s => document.querySelector(s);
 const app = $('#app');
 const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -390,18 +422,19 @@ function buildHeader(){
   $('#hdr-name').textContent = t('brand2','بوابة التدريب'); $('#hdr-uni').textContent = t('uni2','بنيان العالمية'); document.title = t('brand2','بوابة التدريب') + ' — ' + t('uni2','بنيان العالمية');
   const A = (k,l,on,s) => `<a href="${link(k,'',s)}" class="${on?'on':''}">${l}</a>`;
   const certOn = ['certs','verify','cert'].includes(PAGE) || (PAGE==='me' && SLOT!=='up');
-  $('#hdr-nav').innerHTML = A('home',t('nav_courses','الدورات'),PAGE==='home'||PAGE==='course') + A('ads','📣 '+t('nav_ads','الإعلانات'),PAGE==='ads'||PAGE==='ad')
+  const IN = !!(store('metok') || store('tok'));
+  $('#hdr-nav').innerHTML = A('portal','🌍 '+t('portal2','البوابة'),PAGE==='portal') + (!IN ? A('signup',t('nav_signup','تسجيل جديد'),PAGE==='signup') + A('contact',t('nav_contact','اتصل بنا'),PAGE==='contact') + `<a class="nav-login ${['login','admin','manage'].includes(PAGE)?'on':''}" href="${link('login')}">🔑 ${t('login_title','الدخول')}</a>` : A('home',t('nav_courses','الدورات'),PAGE==='home'||PAGE==='course') + A('ads','📣 '+t('nav_ads','الإعلانات'),PAGE==='ads'||PAGE==='ad')
     + `<div class="dd"><a href="${link('certs')}" class="dd-t ${certOn?'on':''}">🎓 ${t('certs_t','الشهادات')} <small>▾</small></a><div class="dd-m">
       <a href="${link('me','','certs')}">🖨️ ${t('k_certs','شهاداتي')}</a><a href="${link('verify')}">✅ ${t('pg_verify','التحقق من شهادة')}</a></div></div>`
     + A('me',t('k_regs','دوراتي'),PAGE==='me'&&SLOT==='up','up') + A('signup',t('nav_signup','تسجيل جديد'),PAGE==='signup') + A('contact',t('nav_contact','اتصل بنا'),PAGE==='contact') + (store('mename') ? `<div class="dd"><a class="nav-login nav-user" href="${link('me','','up')}">👤 ${esc(String(store('mename')).split(' ').slice(0,2).join(' '))} <small>▾</small></a><div class="dd-m"><a href="${link('me','','up')}">🗓️ ${t('k_regs','دوراتي')}</a><a href="${link('me','','certs')}">🎓 ${t('k_certs','شهاداتي')}</a><a href="${link('me','','new')}">＋ ${t('tab_new','اشتراك في دورة جديدة')}</a><a href="#" data-logout="tr">↩ ${t('logout','خروج')}</a></div></div>`
       : store('stname') && store('tok') ? `<div class="dd"><a class="nav-login nav-user" href="${link('admin')}">👤 ${esc(store('stname'))} <small>▾</small></a><div class="dd-m"><a href="${link('admin')}">🗂️ ${t('gate_staff3','الموظفون')}</a><a href="${link('manage')}">🛡️ ${t('gate_admin3','الإدارة')}</a><a href="#" data-logout="st">↩ ${t('logout','خروج')}</a></div></div>`
-      : `<a class="nav-login ${['login','admin','manage'].includes(PAGE)?'on':''}" href="${link('login')}">🔑 ${t('login_title','الدخول')}</a>`) + `
+      : `<a class="nav-login ${['login','admin','manage'].includes(PAGE)?'on':''}" href="${link('login')}">🔑 ${t('login_title','الدخول')}</a>`)) + `
     <select id="langSel" aria-label="${t('lang','اللغة')}">${LANGS.map(([c,n])=>`<option value="${c}" ${c===LANG?'selected':''}>${n}</option>`).join('')}</select>`;
   $('#crumb-back').textContent = (isRTL ? '→ ' : '← ') + t('back','رجوع');
-  $('#crumb-home').textContent = t('home','الرئيسية'); $('#crumb-home').href = link('home');
-  $('#crumb-portal').textContent = t('portal2','البوابة');
-  const HERE = {home:t('pg_home','دليل الدورات'), course:t('pg_course','صفحة البرنامج'), register:KN.register, pre:KN.pre, post:KN.post, eval:KN.eval, cert:KN.cert, verify:t('pg_verify','التحقق من شهادة'), admin:t('login_title','الدخول') + ' › ' + t('gate_staff3','الموظفون'), manage:t('login_title','الدخول') + ' › ' + t('gate_admin3','الإدارة'), login:t('login_title','الدخول'), me:SLOT==='certs'?t('k_certs','شهاداتي'):SLOT==='new'?t('tab_new','اشتراك في دورة جديدة'):t('k_regs','دوراتي'), certs:t('certs_t','الشهادات'), ads:t('nav_ads','الإعلانات'), ad:t('ad_eb','إعلان دورة'), att:t('att_title','تسجيل الحضور'), signup:t('nav_signup','تسجيل جديد'), contact:t('nav_contact','اتصل بنا')};
-  $('#here').textContent = t('here','أنت في:') + ' ' + (HERE[PAGE] || HERE.home);
+  $('#crumb-home').textContent = t('home','الرئيسية'); $('#crumb-home').href = link('portal');
+  $('#crumb-portal').style.display = 'none';
+  const HERE = {portal:t('brand2','بوابة التدريب'), home:t('pg_home','دليل الدورات'), course:t('pg_course','صفحة البرنامج'), register:KN.register, pre:KN.pre, post:KN.post, eval:KN.eval, cert:KN.cert, verify:t('pg_verify','التحقق من شهادة'), admin:t('login_title','الدخول') + ' › ' + t('gate_staff3','الموظفون'), manage:t('login_title','الدخول') + ' › ' + t('gate_admin3','الإدارة'), login:t('login_title','الدخول'), me:SLOT==='certs'?t('k_certs','شهاداتي'):SLOT==='new'?t('tab_new','اشتراك في دورة جديدة'):t('k_regs','دوراتي'), certs:t('certs_t','الشهادات'), ads:t('nav_ads','الإعلانات'), ad:t('ad_eb','إعلان دورة'), att:t('att_title','تسجيل الحضور'), signup:t('nav_signup','تسجيل جديد'), contact:t('nav_contact','اتصل بنا')};
+  $('#here').textContent = t('here','أنت في:') + ' ' + (HERE[PAGE] || HERE.home); document.querySelector('.crumbs').style.display = PAGE==='portal' ? 'none' : '';
   $('#langSel').onchange = e => { store('lang', e.target.value); const cur = BASE + '?p=' + PAGE + (CID?'&id='+encodeURIComponent(CID):'') + (SLOT?'&n='+SLOT:'') + (CODE?'&code='+encodeURIComponent(CODE):'') + '&lang=' + e.target.value; goTop(cur); };
 }
 buildHeader();
@@ -791,7 +824,7 @@ function forgotView(id){
 }
 document.addEventListener('click', e => { const b = e.target.closest('[data-eye]'); if(!b) return; const i = document.getElementById(b.dataset.eye); if(i) i.type = i.type === 'password' ? 'text' : 'password'; });
 document.addEventListener('click', e => { const b = e.target.closest('[data-logout]'); if(!b) return; e.preventDefault();
-  if(b.dataset.logout === 'st'){ try{ run('logout', store('tok')); }catch(er){} store('tok',''); store('stname',''); } else meLogout(); goTop(link('login')); });
+  if(b.dataset.logout === 'st'){ try{ run('logout', store('tok')); }catch(er){} store('tok',''); store('stname',''); } else meLogout(); goTop(link('portal')); });
 function pwModal(){
   openM(`<h2>🔒 ${t('pw_change','تغيير كلمة المرور')}</h2><label>${t('pw_cur','كلمة المرور الحالية')}</label><input id="pc_o" type="password" dir="ltr"><label>${t('pw_new','كلمة المرور الجديدة')}</label><input id="pc_n" type="password" dir="ltr" autocomplete="new-password"><label>${t('pw_again','تأكيد كلمة المرور')}</label><input id="pc_n2" type="password" dir="ltr">
     <p><button class="btn" id="pc_go">${t('save','حفظ')}</button> <span id="pc_m" class="er"></span></p>`);
@@ -1052,6 +1085,114 @@ function certsPage(){
       <p class="mu" style="font-size:12.5px">${t('cert_admin_note','للإدارة: إصدار الشهادات وتعديل البرنامج والاسم والتاريخ من «الدخول ← الإدارة ← الشهادات».')}</p></div>
       <div class="hs-img"><div class="cert-holder" data-certno="${sample.no}"><div class="loader"></div></div><span class="stamp">${t('sample','نموذج')}</span></div></div>`;
   CERT_D[sample.no] = sample; mountCerts(app);
+}
+
+/* ============ البوابة العالمية: كرة أرضية ثلاثية الأبعاد ============ */
+const ISO3 = {ET:'ETH',BD:'BGD',SA:'SAU',ID:'IDN',YE:'YEM',SN:'SEN',MM:'MMR',NG:'NGA',EG:'EGY',GH:'GHA',PS:'PSE',LB:'LBN',IN:'IND',PK:'PAK',UG:'UGA',KE:'KEN',TZ:'TZA',SO:'SOM',SD:'SDN',TD:'TCD',ML:'MLI',NE:'NER',JO:'JOR',TR:'TUR',MY:'MYS',PH:'PHL',TH:'THA',LK:'LKA',NP:'NPL',AF:'AFG',XK:'CS-KM',BA:'BIH',AL:'ALB',MA:'MAR',DZ:'DZA',TN:'TUN',MR:'MRT',DJ:'DJI',ER:'ERI',CM:'CMR',BJ:'BEN',TG:'TGO',GN:'GIN',SL:'SLE',LR:'LBR',MZ:'MOZ',MW:'MWI',MG:'MDG',KM:'COM'};
+const EXTRA_C = {COM:[43.33,-11.7]};
+function makeGlobe(wrap, world, hi, groups, onPick){
+  const cv = document.createElement('canvas'), ov = document.createElement('canvas'), tip = document.createElement('div');
+  cv.className = 'gl-c'; ov.className = 'gl-o'; tip.className = 'gl-tip'; wrap.append(cv, ov, tip);
+  const gl = cv.getContext('webgl', {premultipliedAlpha:true, alpha:true, antialias:true});
+  if(!gl) throw new Error('webgl');
+  // الخريطة المسطحة (equirectangular) تُرسم مرة واحدة ثم تُلف على الكرة
+  const T = document.createElement('canvas'); T.width = 2048; T.height = 1024; const g = T.getContext('2d');
+  const oc = g.createLinearGradient(0,0,0,1024); oc.addColorStop(0,'#0b1a3d'); oc.addColorStop(.5,'#10265a'); oc.addColorStop(1,'#0b1a3d'); g.fillStyle = oc; g.fillRect(0,0,2048,1024);
+  g.strokeStyle = 'rgba(160,190,255,.10)'; g.lineWidth = 1;
+  for(let lo=-180; lo<=180; lo+=20){ const x=(lo+180)/360*2048; g.beginPath(); g.moveTo(x,0); g.lineTo(x,1024); g.stroke(); }
+  for(let la=-80; la<=80; la+=20){ const y=(90-la)/180*1024; g.beginPath(); g.moveTo(0,y); g.lineTo(2048,y); g.stroke(); }
+  const P = (lo,la) => [(lo+180)/360*2048, (90-la)/180*1024];
+  world.forEach(f => { const on = hi.has(f.id);
+    f.r.forEach(ring => { for(const sh of [0,-2048,2048]){ g.beginPath(); let px = null;
+        ring.forEach(([lo,la],i) => { let [x,y] = P(lo,la); if(px!==null){ while(x-px > 1024) x -= 2048; while(px-x > 1024) x += 2048; } px = x; i ? g.lineTo(x+sh,y) : g.moveTo(x+sh,y); });
+        g.closePath(); g.fillStyle = on ? '#E3A72F' : '#3E5FAE'; g.fill(); g.strokeStyle = on ? 'rgba(255,240,200,.9)' : 'rgba(200,215,255,.45)'; g.lineWidth = on ? 1.6 : .8; g.stroke(); } }); });
+  const vs = 'attribute vec2 p;varying vec2 uv;void main(){uv=p;gl_Position=vec4(p,0.,1.);}';
+  const fs = 'precision mediump float;uniform sampler2D t;uniform float yaw,pitch;varying vec2 uv;void main(){vec2 q=uv/0.86;float r2=dot(q,q);if(r2>1.0){float d=sqrt(r2);float a=smoothstep(1.16,1.0,d)*0.55;gl_FragColor=vec4(0.32,0.55,1.0,1.0)*a;return;}vec3 s=vec3(q.x,q.y,sqrt(1.0-r2));float cp=cos(pitch),sp=sin(pitch);vec3 a=vec3(s.x,s.y*cp-s.z*sp,s.y*sp+s.z*cp);float cy=cos(yaw),sy=sin(yaw);vec3 w=vec3(a.x*cy+a.z*sy,a.y,-a.x*sy+a.z*cy);float lon=atan(w.x,w.z);float lat=asin(clamp(w.y,-1.0,1.0));vec3 c=texture2D(t,vec2(lon/6.2831853+0.5,0.5-lat/3.14159265)).rgb;float l=max(dot(s,normalize(vec3(-0.45,0.55,0.75))),0.0);c*=0.38+0.85*l;c+=vec3(0.30,0.50,1.0)*pow(1.0-s.z,2.5)*0.55;c+=vec3(1.0)*pow(max(dot(reflect(-normalize(vec3(-0.45,0.55,0.75)),s),vec3(0.,0.,1.)),0.),24.)*0.10;gl_FragColor=vec4(c,1.0);}';
+  const sh = (type, src) => { const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s; };
+  const pr = gl.createProgram(); gl.attachShader(pr, sh(gl.VERTEX_SHADER, vs)); gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, fs)); gl.linkProgram(pr); gl.useProgram(pr);
+  const b = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, b); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,1,1]), gl.STATIC_DRAW);
+  const loc = gl.getAttribLocation(pr,'p'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+  const tx = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D, tx); gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,T);
+  gl.generateMipmap(gl.TEXTURE_2D); gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR_MIPMAP_LINEAR); gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.REPEAT); gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
+  const uY = gl.getUniformLocation(pr,'yaw'), uP = gl.getUniformLocation(pr,'pitch');
+  const st = {yaw: 0.75, pitch: -0.3, ty: null, tp: null, auto: true, drag: null, hover: null, W: 0, D: 1};
+  const resize = () => { const w = wrap.clientWidth, d = Math.min(2, window.devicePixelRatio||1); st.W = w; st.D = d; [cv,ov].forEach(c => { c.width = w*d; c.height = w*d; c.style.width = c.style.height = w + 'px'; }); gl.viewport(0,0,w*d,w*d); };
+  resize(); window.addEventListener('resize', resize);
+  const toS = (lo, la) => { const L = la*Math.PI/180, O = lo*Math.PI/180; const w = [Math.cos(L)*Math.sin(O), Math.sin(L), Math.cos(L)*Math.cos(O)];
+    const c = Math.cos(st.yaw), s = Math.sin(st.yaw), bx = w[0]*c - w[2]*s, bz = w[0]*s + w[2]*c, cp = Math.cos(st.pitch), sp = Math.sin(st.pitch);
+    return [bx, w[1]*cp + bz*sp, -w[1]*sp + bz*cp]; };
+  let marks = [];
+  const draw = () => {
+    if(st.ty !== null){ let dy = ((st.ty - st.yaw + Math.PI*3) % (Math.PI*2)) - Math.PI; st.yaw += dy*.08; st.pitch += (st.tp - st.pitch)*.08; if(Math.abs(dy) < .002 && Math.abs(st.tp-st.pitch) < .002) st.ty = null; }
+    else if(st.auto && !st.drag) st.yaw += .0022;
+    gl.clearColor(0,0,0,0); gl.clear(gl.COLOR_BUFFER_BIT); gl.uniform1f(uY, st.yaw); gl.uniform1f(uP, st.pitch); gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
+    const x = ov.getContext('2d'), W = st.W, R = W/2*.86, cx = W/2; x.setTransform(st.D,0,0,st.D,0,0); x.clearRect(0,0,W,W); marks = [];
+    groups.forEach(gr => {
+      gr.courses.forEach((c,i) => { const a = i*2.399, rr = .9 + Math.sqrt(i)*.85, s = toS(gr.lo + Math.cos(a)*rr, gr.la + Math.sin(a)*rr*.8);
+        if(s[2] <= .05) return; const px = cx + s[0]*R, py = cx - s[1]*R, al = Math.min(1, s[2]*2.2);
+        x.globalAlpha = al; x.fillStyle = c[6] ? '#5BE3A0' : '#FFFFFF'; x.beginPath(); x.arc(px, py, 2.2, 0, 7); x.fill(); x.globalAlpha = 1; marks.push({k:'c', c, px, py, r:6}); });
+      const s = toS(gr.lo, gr.la); if(s[2] <= .02) return; const px = cx + s[0]*R, py = cx - s[1]*R, al = Math.min(1, s[2]*2), sc = .75 + s[2]*.35, on = st.hover && st.hover.g === gr;
+      x.globalAlpha = al; x.save(); x.translate(px, py); x.scale(sc*(on?1.18:1), sc*(on?1.18:1));
+      x.fillStyle = 'rgba(0,0,0,.35)'; x.beginPath(); x.ellipse(0, 1, 7, 2.5, 0, 0, 7); x.fill();
+      const gd = x.createLinearGradient(0,-34,0,0); gd.addColorStop(0,'#FFD27A'); gd.addColorStop(1,'#B5622C'); x.fillStyle = gd;
+      x.beginPath(); x.moveTo(0,0); x.bezierCurveTo(-4,-10,-13,-16,-13,-25); x.arc(0,-25,13,Math.PI,0); x.bezierCurveTo(13,-16,4,-10,0,0); x.fill();
+      x.fillStyle = '#fff'; x.beginPath(); x.arc(0,-25,9,0,7); x.fill(); x.fillStyle = '#26407F'; x.font = '700 10px IBM Plex Sans Arabic, sans-serif'; x.textAlign = 'center'; x.textBaseline = 'middle'; x.fillText(String(gr.courses.length), 0, -24.5);
+      x.restore(); x.globalAlpha = 1; marks.push({k:'g', g:gr, px, py: py - 25*sc, r: 15*sc});
+    });
+    requestAnimationFrame(draw);
+  };
+  requestAnimationFrame(draw);
+  const hit = e => { const r = ov.getBoundingClientRect(), mx = e.clientX - r.left, my = e.clientY - r.top; let best = null, bd = 1e9;
+    marks.forEach(m => { const d = Math.hypot(m.px - mx, m.py - my); if(d < m.r + 3 && d < bd + (m.k==='g'?6:0)){ bd = d; best = m; } }); return {m: best, mx, my}; };
+  ov.addEventListener('pointerdown', e => { st.drag = {x: e.clientX, y: e.clientY, y0: st.yaw, p0: st.pitch, moved: false}; st.ty = null; ov.setPointerCapture(e.pointerId); });
+  ov.addEventListener('pointermove', e => {
+    if(st.drag){ const dx = e.clientX - st.drag.x, dy = e.clientY - st.drag.y; if(Math.abs(dx)+Math.abs(dy) > 4) st.drag.moved = true;
+      st.yaw = st.drag.y0 - dx/st.W*3.2; st.pitch = Math.max(-1.25, Math.min(1.25, st.drag.p0 - dy/st.W*3.2)); return; }
+    const {m, mx, my} = hit(e); st.hover = m; ov.style.cursor = m ? 'pointer' : 'grab';
+    if(m){ tip.innerHTML = m.k==='g' ? `<b>${esc(cName(m.g.name))}</b><span>${t('pins_n','{n} دورة',{n:m.g.courses.length})}</span>` : `<b>${esc(pName(m.c[1]))}</b><span>${esc(cName(m.c[2]))}${m.c[3]?' · '+esc(m.c[3]):''}${m.c[4]?' · '+esc(dLoc(m.c[4])):''}</span>`;
+      tip.style.display = 'block'; tip.style.left = mx + 'px'; tip.style.top = (my - 12) + 'px'; } else tip.style.display = 'none'; });
+  ov.addEventListener('pointerup', e => { const d = st.drag; st.drag = null; if(d && d.moved) return; const {m} = hit(e); if(m) onPick(m); });
+  ov.addEventListener('pointerleave', () => { tip.style.display = 'none'; st.hover = null; });
+  return { focus(gr){ st.ty = gr.lo*Math.PI/180; st.tp = -gr.la*Math.PI/180; st.auto = false; }, resume(){ st.auto = true; } };
+}
+async function portalPage(){
+  const logged = !!(store('metok') || store('tok'));
+  app.innerHTML = `<section class="pt-hero"><div class="pt-stars" aria-hidden="true"></div>
+      <div class="pt-txt"><span class="eyebrow">🌍 ${t('uni2','بنيان العالمية')}</span><h1>${t('brand2','بوابة التدريب')}</h1>
+        <p class="lead">${t('pt_lead','برامج تدريبية للأئمة والمعلمين والدعاة والشباب في دول العالم. لكل دورة دبوس على الخريطة، ولكل متدرب حساب وشهادة موحدة يتحقق منها أي أحد.')}</p>
+        <div class="pt-cta">${logged ? `<a class="btn gold big" href="${link(store('metok')?'me':'admin','',store('metok')?'up':'')}">👤 ${t('pt_my','حسابي')}</a><a class="btn ghost-w big" href="${link('ads')}">📣 ${t('nav_ads','الإعلانات')}</a>`
+          : `<a class="btn gold big" href="${link('login')}">🔑 ${t('login_title','الدخول')}</a><a class="btn ghost-w big" href="${link('signup')}">${t('nav_signup','تسجيل جديد')}</a>`}</div>
+        <div class="pt-kpis" id="pt_k"><div><b>—</b><span>${t('p_f_progs','برنامجاً تدريبياً')}</span></div><div><b>—</b><span>${t('st_countries','دولة')}</span></div><div><b>—</b><span>${t('pt_runs','دورة منفذة ومجدولة')}</span></div><div><b>—</b><span>${t('p_f_trained','متدرباً حتى الآن')}</span></div></div>
+        <p class="pt-hint">🖱️ ${t('pt_hint','اسحب الكرة لتدويرها، واضغط على الدبوس لعرض دورات الدولة.')}</p></div>
+      <div class="pt-globe"><div class="globe" id="globe"><div class="loader"></div></div><div class="pt-legend"><span><i class="lg-pin"></i>${t('pt_lg1','دولة فيها دورات')}</span><span><i class="lg-dot"></i>${t('pt_lg2','دورة')}</span><span><i class="lg-dot open"></i>${t('pt_lg3','مفتوحة للتسجيل')}</span></div></div>
+    </section>
+    <section class="pt-countries"><div class="pt-panel" id="pt_panel"></div><div class="pt-chips" id="pt_chips"></div></section>
+    <section class="pt-progs"><div class="pt-sh"><h2>${t('p_nav_programs','البرامج')}</h2><p class="mu">${t('pt_progs_p','اثنا عشر برنامجاً، لكل برنامج دوراته وتقييمه القبلي والبعدي وشهادته.')}</p></div><div class="pg-grid" id="pt_pg"></div></section>
+    <section class="pt-journey"><div class="pt-sh"><h2>${t('p_nav_journey','رحلة المتدرب')}</h2></div><ol class="jr">
+      <li><b>1</b><span>${t('jr1','أنشئ حسابك بالاسم والجوال والبريد')}</span></li><li><b>2</b><span>${t('jr2','سجّل في دورة من الإعلانات')}</span></li><li><b>3</b><span>${t('jr3','احضر، ويُسجَّل حضورك تلقائياً')}</span></li><li><b>4</b><span>${t('jr4','أكمل التقييمات')}</span></li><li><b>5</b><span>${t('jr5','اطبع شهادتك الموحدة برمز QR')}</span></li></ol>
+      <div class="pt-cta center">${logged?'':`<a class="btn gold big" href="${link('signup')}">${t('pt_start','ابدأ الآن')}</a>`}<a class="btn ghost big" href="${link('verify')}">✅ ${t('pg_verify','التحقق من شهادة')}</a></div></section>`;
+  let D, W;
+  try{ [D, W] = await Promise.all([run('apiPublic'), fetch(ASSET + 'geo/world.json').then(r => r.json())]); }
+  catch(e){ $('#globe').innerHTML = `<p class="mu">${esc(trSrv(e))}</p>`; return; }
+  const ks = $('#pt_k').children, cnt = (el, v) => { const n = +v || 0, t0 = performance.now(); const f = tm => { const p = Math.min(1, (tm - t0)/1400); el.textContent = Math.round(n*(1-Math.pow(1-p,3))).toLocaleString(LOCALE); if(p < 1) requestAnimationFrame(f); }; requestAnimationFrame(f); };
+  [D.programs, D.countries.length, D.records, D.achieved].forEach((v,i) => cnt(ks[i].querySelector('b'), v));
+  const byId = {}; W.forEach(f => byId[f.id] = f);
+  const groups = D.countries.map(([name]) => { const i3 = ISO3[ISO[name]]; const c = (byId[i3] && byId[i3].c) || EXTRA_C[i3]; return c ? {name, id:i3, lo:c[0], la:c[1], courses: D.pins.filter(p => p[2] === name)} : null; }).filter(Boolean);
+  const showCountry = gr => {
+    const L = gr.courses.slice().sort((a,b) => String(b[4]).localeCompare(String(a[4])));
+    $('#pt_panel').innerHTML = `<div class="pp-h"><div><span class="eyebrow">📍 ${t('pt_country','الدولة')}</span><h3>${esc(cName(gr.name))}</h3></div><b>${L.length}<small>${t('pins_n2','دورة')}</small></b></div>
+      <ul class="pp-list">${L.slice(0,40).map(c => `<li><a href="${link(c[6]?'ad':'course', c[0])}"><i class="${c[6]?'open':''}"></i><div class="pp-t"><b>${esc(pName(c[1]))}</b><small>${c[3]?esc(c[3])+' · ':''}${esc(dLoc(c[4])||'—')}</small></div>${c[6]?`<em>${t('ads_eb','سجّل الآن')}</em>`:pill(c[5])}</a></li>`).join('')}</ul>
+      ${logged?'':`<p class="mu pp-note">🔒 ${t('pt_lock','تفاصيل الدورات والتسجيل بعد الدخول.')}</p>`}`;
+    document.querySelectorAll('.pt-chips button').forEach(b => b.classList.toggle('on', b.dataset.c === gr.name));
+  };
+  $('#pt_chips').innerHTML = groups.map(gr => `<button data-c="${esc(gr.name)}"><span>${esc(cName(gr.name))}</span><em>${gr.courses.length}</em></button>`).join('');
+  $('#globe').innerHTML = '';
+  let G = null;
+  try{ G = makeGlobe($('#globe'), W, new Set(groups.map(g => g.id)), groups, m => { const gr = m.k === 'g' ? m.g : groups.find(g => g.name === m.c[2]); G.focus(gr); showCountry(gr); if(m.k === 'c') goTop(link(m.c[6]?'ad':'course', m.c[0])); }); }
+  catch(e){ $('#globe').innerHTML = `<p class="mu">${t('pt_noweb','متصفحك لا يدعم الكرة ثلاثية الأبعاد؛ اختر الدولة من القائمة.')}</p>`; }
+  app.querySelectorAll('.pt-chips button').forEach(b => b.onclick = () => { const gr = groups.find(g => g.name === b.dataset.c); if(G) G.focus(gr); showCountry(gr); });
+  if(groups[0]) showCountry(groups[0]);
+  $('#pt_pg').innerHTML = (D.progs||[]).map((p,i) => `<article class="pg-card" style="--pc:${PCOL[i%PCOL.length]}"><span class="pg-n">${String(i+1).padStart(2,'0')}</span><h3>${esc(pName(String(p[0]).replace(/^\s*برنامج\s+/,'')))}</h3><p>${esc(p[1]||'')}</p><small>${t('pg_units','{n} دورة',{n:p[2]})}</small></article>`).join('');
 }
 
 /* ============ الإعلانات ============ */
@@ -1825,8 +1966,12 @@ async function msgsTab(){
 }
 
 /* ============ الموجّه ============ */
+const PUBLIC_PAGES = ['portal','login','signup','verify','contact'];
+const LOGGED = () => !!(store('metok') || store('tok'));
 (async function(){
   try{
+    if(!PUBLIC_PAGES.includes(PAGE) && !LOGGED() && PAGE!=='admin' && PAGE!=='manage'){ needLogin(); return loginPage('tr', t('login_first','سجّل دخولك أولاً لعرض هذه الصفحة.')); }
+    if(PAGE==='portal') return await portalPage();
     if(PAGE==='admin' || PAGE==='manage') return loadAdmin();
     if(PAGE==='login') return loginPage();
     if(PAGE==='me') return await mePage();
