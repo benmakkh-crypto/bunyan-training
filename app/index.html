@@ -1485,7 +1485,7 @@ function pmetaForm(){
 }
 
 /* ============ الإدارة والموظفون ============ */
-let TOK = store('tok'), D = null, TAB = store('tab') || 'dash';
+let TOK = store('tok'), D = null, TAB = QS.get('tab') || store('tab') || 'dash';
 const can = p => D && (D.me.isSuper || D.me.perms.includes(p));
 const ADMIN_MODE = PAGE === 'manage' ? 'manage' : 'staff';
 function adminLoginView(msg){
