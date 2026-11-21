@@ -931,15 +931,80 @@ function signupFields(p){ return `<label>${t('name_l','الاسم الثلاثي
 function signupData(p){ const g = k => (document.getElementById(p+'_'+k)||{}).value || '';
   if(g('pw').length < 6) throw new Error(t('pw_short','كلمة المرور 6 أحرف على الأقل')); if(g('pw') !== g('pw2')) throw new Error(t('pw_mismatch','كلمتا المرور غير متطابقتين'));
   return {name:g('name'), phone:g('phone'), email:g('email'), password:g('pw')}; }
+const AU3_CSS = `<style>
+.au3{position:relative;min-height:min(86vh,780px);margin:10px auto;max-width:1120px;border-radius:30px;overflow:hidden;color:#fff;perspective:1400px;isolation:isolate;background:radial-gradient(1200px 520px at 82% -10%,#25437f 0%,transparent 55%),radial-gradient(900px 520px at 0% 120%,#7a4a12 0%,transparent 48%),linear-gradient(135deg,#0b1733 0%,#132a5c 48%,#0c1838 100%)}
+.au3-cv{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.au3-grid{position:absolute;inset:0;z-index:0;opacity:.5;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:44px 44px;mask:radial-gradient(70% 60% at 50% 40%,#000,transparent)}
+.au3-orbs span{position:absolute;border-radius:50%;filter:blur(34px);opacity:.5;animation:au3float 15s ease-in-out infinite;z-index:0}
+.au3-orbs span:nth-child(1){width:260px;height:260px;background:#3D5BA9;top:-60px;inset-inline-start:-40px}
+.au3-orbs span:nth-child(2){width:210px;height:210px;background:#E3A72F;bottom:-60px;inset-inline-end:8%;animation-delay:-5s}
+.au3-orbs span:nth-child(3){width:150px;height:150px;background:#9a7320;top:42%;inset-inline-end:-30px;animation-delay:-9s}
+@keyframes au3float{50%{transform:translateY(-28px) translateX(14px)}}
+.au3-wrap{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:24px;min-height:inherit;align-items:center;padding:36px 42px}
+.au3-brand{transform-style:preserve-3d}
+.au3-emblem{position:relative;width:120px;height:120px;display:grid;place-items:center;margin-bottom:20px}
+.au3-emblem img{width:80px;height:80px;object-fit:contain;filter:drop-shadow(0 10px 22px rgba(0,0,0,.45));border-radius:18px;background:rgba(255,255,255,.08);padding:8px}
+.au3-ring{position:absolute;inset:0;border-radius:50%;padding:2px;background:conic-gradient(from 0deg,#F4D58D,#E3A72F,#3D5BA9,#F4D58D);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:au3spin 9s linear infinite}
+@keyframes au3spin{to{transform:rotate(360deg)}}
+.au3-brand h1{font-family:'Uthman Naskh','IBM Plex Sans Arabic',serif;font-size:48px;margin:0 0 4px;line-height:1.25;text-shadow:0 10px 32px rgba(0,0,0,.45)}
+.au3-sub{color:#F4D58D;font-weight:700;margin:0 0 22px;font-size:16px}
+.au3-ticks{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px}
+.au3-ticks li{display:flex;gap:11px;align-items:center;font-size:15.5px;color:#e7edfb;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:12px 15px;backdrop-filter:blur(6px)}
+.au3-ticks b{color:#F4D58D}
+.au3-card{position:relative;background:rgba(255,255,255,.1);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.22);border-radius:26px;padding:26px 26px 20px;box-shadow:0 44px 90px -34px rgba(0,0,0,.65),inset 0 1px 0 rgba(255,255,255,.25);transform-style:preserve-3d;transition:transform .18s ease-out;will-change:transform}
+.au3-glow{position:absolute;inset:0;border-radius:26px;background:radial-gradient(360px 200px at var(--mx,50%) var(--my,0%),rgba(244,213,141,.22),transparent 60%);pointer-events:none}
+.au3-head{transform:translateZ(45px)}.au3-head h2{margin:0;font-size:27px;font-family:'Uthman Naskh','IBM Plex Sans Arabic',serif}.au3-head .mu{color:#d7def0;margin:5px 0 14px}
+.au3-form{transform:translateZ(22px)}
+.au3-form label{display:block;margin:11px 0 5px;font-weight:700;font-size:13.5px;color:#eaf0fc}
+.au3-form input{width:100%;padding:12px 14px;border-radius:13px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.93);color:#14203a;font:inherit;outline:none;transition:.15s}
+.au3-form input:focus{border-color:#E3A72F;box-shadow:0 0 0 3px rgba(227,167,47,.35);background:#fff}
+.au3-form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.au3-form .pw-eye{color:#45506a}
+.au3-go{width:100%;margin-top:18px;padding:13px;border:0;border-radius:999px;cursor:pointer;font:inherit;font-weight:900;font-size:16px;color:#3b2a07;background:linear-gradient(135deg,#F7DE9B,#E3A72F);box-shadow:0 16px 32px -12px rgba(227,167,47,.85);transform:translateZ(34px);transition:.15s}
+.au3-go:hover{filter:brightness(1.05);transform:translateZ(34px) translateY(-1px)}.au3-go:disabled{opacity:.6}
+.au3-foot{color:#d7def0;margin:13px 0 0;font-size:14px;text-align:center}.au3-foot a{color:#F4D58D;font-weight:800}
+.au3 .er{color:#ffb9b0;margin:8px 0 0;min-height:1em}
+@media(max-width:860px){.au3-wrap{grid-template-columns:1fr;padding:22px}.au3-brand{text-align:center}.au3-emblem{margin-inline:auto}.au3-brand h1{font-size:38px}.au3-ticks{display:none}.au3-card{transform:none!important}}
+</style>`;
+function au3Particles(cv, scene){
+  var ctx=cv.getContext('2d'), DPR=Math.min(2,window.devicePixelRatio||1), W=1,H=1,pts=[];
+  function size(){ var r=scene.getBoundingClientRect(); W=cv.width=Math.max(1,r.width*DPR); H=cv.height=Math.max(1,r.height*DPR); cv.style.width=r.width+'px'; cv.style.height=r.height+'px'; }
+  function init(){ size(); var n=Math.min(68,Math.max(26,Math.round(W*H/(DPR*DPR)/15000))); pts=[]; for(var i=0;i<n;i++) pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.24*DPR,vy:(Math.random()-.5)*.24*DPR,r:(Math.random()*1.5+.6)*DPR}); }
+  function draw(){ if(!document.body.contains(cv)) return; ctx.clearRect(0,0,W,H); var md=(118*DPR)*(118*DPR);
+    for(var i=0;i<pts.length;i++){ var p=pts[i]; p.x+=p.vx; p.y+=p.vy; if(p.x<0||p.x>W)p.vx*=-1; if(p.y<0||p.y>H)p.vy*=-1;
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,6.283); ctx.fillStyle='rgba(244,213,141,.7)'; ctx.fill();
+      for(var j=i+1;j<pts.length;j++){ var q=pts[j], dx=p.x-q.x, dy=p.y-q.y, d=dx*dx+dy*dy; if(d<md){ ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(q.x,q.y); ctx.strokeStyle='rgba(125,155,225,'+(.16*(1-d/md))+')'; ctx.lineWidth=DPR; ctx.stroke(); } } }
+    requestAnimationFrame(draw); }
+  init(); draw(); var ro; window.addEventListener('resize', function(){ clearTimeout(ro); ro=setTimeout(function(){ if(document.body.contains(cv)) init(); },200); });
+}
+function au3Init(){
+  var scene=document.querySelector('.au3'), card=document.getElementById('au3Card'); if(!scene) return;
+  var cv=scene.querySelector('.au3-cv'); if(cv){ try{ au3Particles(cv, scene); }catch(e){} }
+  if(card){ scene.addEventListener('mousemove', function(e){ var r=scene.getBoundingClientRect(), cr=card.getBoundingClientRect();
+      var x=(e.clientX-r.left)/r.width-0.5, y=(e.clientY-r.top)/r.height-0.5;
+      card.style.transform='rotateY('+(x*7)+'deg) rotateX('+(-y*7)+'deg)';
+      card.style.setProperty('--mx',((e.clientX-cr.left)/cr.width*100)+'%'); card.style.setProperty('--my',((e.clientY-cr.top)/cr.height*100)+'%'); });
+    scene.addEventListener('mouseleave', function(){ card.style.transform=''; }); }
+}
 function signupPage(){
-  app.innerHTML = `<section class="auth solo"><div class="auth-card">
-    <div class="auth-head"><img src="${ASSET}logo.png" alt=""><div><h2>${t('signup_t','تسجيل حساب جديد')}</h2><p class="mu">${t('signup_p2','ثلاث خطوات: اسمك، وجوالك، وبريدك — ثم كلمة مرور تدخل بها.')}</p></div></div>
-    ${signupFields('s')}<button class="btn wide" id="s_go">${t('reg_btn','تسجيل')}</button> <p id="s_msg" class="er"></p>
-    <p class="mu">${t('have_account','لديك حساب؟')} <a href="${link('login')}">${t('login_title','الدخول')}</a></p></div></section>`;
+  app.innerHTML = AU3_CSS + `<div class="au3"><canvas class="au3-cv"></canvas><div class="au3-grid"></div><div class="au3-orbs"><span></span><span></span><span></span></div>
+    <div class="au3-wrap">
+      <aside class="au3-brand">
+        <div class="au3-emblem"><div class="au3-ring"></div><img src="${ASSET}logo.png" alt=""></div>
+        <h1>${t('brand2','بوابة التدريب')}</h1><p class="au3-sub">${t('brand','بنيان العالمية')} · ${t('signup_tag','منصة التدريب الإلكتروني')}</p>
+        <ul class="au3-ticks"><li>✦ <span>${t('su_t1','التسجيل في البرامج والدورات المعتمدة')}</span></li><li>✦ <span>${t('su_t2','متابعة حضورك واستلام شهاداتك إلكترونياً')}</span></li><li>✦ <span>${t('su_t3','حساب واحد لكل خدمات التدريب')}</span></li></ul>
+      </aside>
+      <section class="au3-card" id="au3Card"><div class="au3-glow"></div>
+        <div class="au3-head"><h2>${t('signup_t','تسجيل حساب جديد')}</h2><p class="mu">${t('signup_p2','ثلاث خطوات: اسمك، وجوالك، وبريدك — ثم كلمة مرور تدخل بها.')}</p></div>
+        <div class="au3-form">${signupFields('s')}<button class="au3-go" id="s_go" type="button">${t('reg_btn','تسجيل')}</button><p id="s_msg" class="er"></p>
+        <p class="au3-foot">${t('have_account','لديك حساب؟')} <a href="${link('login')}">${t('login_title','الدخول')}</a></p></div>
+      </section>
+    </div></div>`;
   $('#s_go').onclick = async () => { $('#s_msg').textContent = '';
     try{ const d = signupData('s'); $('#s_go').disabled = true; const r = await run('apiSignup', d);
       store('metok', r.token); store('mename', r.name); store('email', d.email.trim().toLowerCase()); toast(t('reg_ok','تم التسجيل بنجاح')); afterLogin(link('me','','new'));
     }catch(e){ $('#s_msg').textContent = trSrv(e); $('#s_go').disabled = false; } };
+  try{ au3Init(); }catch(e){}
 }
 
 /* ============ اتصل بنا ============ */
